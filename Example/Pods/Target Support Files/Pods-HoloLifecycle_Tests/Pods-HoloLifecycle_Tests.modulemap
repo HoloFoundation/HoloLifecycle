@@ -1,0 +1,6 @@
+framework module Pods_HoloLifecycle_Tests {
+  umbrella header "Pods-HoloLifecycle_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

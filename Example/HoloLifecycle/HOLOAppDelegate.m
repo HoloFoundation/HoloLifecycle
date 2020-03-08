@@ -13,6 +13,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSLog(@"%@ perform selector: %@", NSStringFromClass(self.class), NSStringFromSelector(_cmd));
+    
     return YES;
 }
 

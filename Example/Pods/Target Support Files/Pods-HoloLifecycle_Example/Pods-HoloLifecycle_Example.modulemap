@@ -1,0 +1,6 @@
+framework module Pods_HoloLifecycle_Example {
+  umbrella header "Pods-HoloLifecycle_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

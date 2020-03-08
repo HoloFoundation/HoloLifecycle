@@ -1,0 +1,27 @@
+PODS:
+  - Aspects (1.4.1)
+  - HoloLifecycle (0.1.0):
+    - Aspects
+    - JRSwizzle
+  - JRSwizzle (1.0)
+
+DEPENDENCIES:
+  - HoloLifecycle (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Aspects
+    - JRSwizzle
+
+EXTERNAL SOURCES:
+  HoloLifecycle:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  HoloLifecycle: 556124e9be64b3f45c8f753bbf8ac0ff34e9490b
+  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+
+PODFILE CHECKSUM: 76f1d25e350d8f1a855b9682df15540670624047
+
+COCOAPODS: 1.8.4

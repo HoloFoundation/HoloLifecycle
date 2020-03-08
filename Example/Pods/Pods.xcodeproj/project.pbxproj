@@ -1,0 +1,1184 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CB1E55458F157A19F5FC83ECA16505F /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6DA04FAF9653E5A80D07DD5982156CB /* Aspects.framework */; };
+		123B03EB293E997F01AE6786E5A5EE60 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 031AC69E5419A63E1E6025D21B382DAA /* JRSwizzle.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		24CE900336FE9A40A707AF6F34F418D2 /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = E99DE526217BEB4B62706CAE71A52E0E /* JRSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D6CD69F24F674AE177667A8642E103B /* JRSwizzle-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B6F6B1F43AEA4B7128A23191C55B51E /* JRSwizzle-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B5C341A6AF476C38379CF0AAB516BA4 /* HoloLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E264F21084CB9C306E1C6D3B9088FB /* HoloLifecycle.m */; };
+		46E4D715B96369AA77A570730DC39810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */; };
+		4939F240EFC5C2AC4B2D0014E4F8046F /* JRSwizzle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C95DE1D1329964592632EA30696C16 /* JRSwizzle-dummy.m */; };
+		533B3D5EA2C5DF73D47948C06F20D557 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */; };
+		5818B4FEC2E23A705FEBB1767B1B5AE7 /* HoloLifecycleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A393D5018CA0F9A705D00E61B46A0A2E /* HoloLifecycleManager.m */; };
+		6C5A8C64E38CD7655F1454517760C7D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */; };
+		6D782B3E2FFABD2D4CAFD9D4D6A7A5D4 /* Pods-HoloLifecycle_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B90011BC8275B08897B68D206BDF8E /* Pods-HoloLifecycle_Tests-dummy.m */; };
+		70A3551F35742CBB434EE312B6ED9521 /* Pods-HoloLifecycle_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C195D2B19607158084E6E6CA5696B54F /* Pods-HoloLifecycle_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		724C6F3FFEE834611903385ACED9A65F /* Aspects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B38585CB8DB974036F6E4B0BDA3F6FD4 /* Aspects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76015A37FF893DF096095CF79935F079 /* Pods-HoloLifecycle_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA4785936B7C635D20C8EC9685562A65 /* Pods-HoloLifecycle_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78DF0357E5D20C6B83B62E4D52E034BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */; };
+		A954361B6A6FD111452CB9DABC9B30F7 /* Aspects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF930EFB9AB11DE9C94B8C5F4E64EA48 /* Aspects-dummy.m */; };
+		B407B4BFB92CC2300EE2B3D7349C7C01 /* HoloLifecycle-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70BA860E7B60F91C76F5726E3F7B6A9B /* HoloLifecycle-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE3DC85CBFCBAB171FFDEFFAAD40A48F /* Pods-HoloLifecycle_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E0FD79B2E62178BCB99D0350C66CD6 /* Pods-HoloLifecycle_Example-dummy.m */; };
+		C60EAF38472CAD0770475C6AB3BBB486 /* HoloLifecycle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E20BD86BA4B6371FC28CD8E360ABE1B /* HoloLifecycle-dummy.m */; };
+		CD5A8179D1EB7E53B79D9A3410E79A4B /* JRSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FE543266B400ECDA18E31D5371AB0E /* JRSwizzle.framework */; };
+		D29807C0AF15AB9973D93D1416EF37EB /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = BBC5D462486D92EFCC0B1B609135704C /* Aspects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3A1EC23C4A7C749A4309CEE01C759E7 /* HoloLifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = E8917D53B56613FEEB45674922214515 /* HoloLifecycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D45C1D79075C6D95E32A7D341050F800 /* HoloLifecycleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC0326F0BC4F6A0F0A8ECF770978F80 /* HoloLifecycleManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F51A21D307B9275272758FF324F60B91 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810DDF5698D658987518C97FB7A59BB /* Aspects.m */; };
+		F59088FE1761C4ED16DC61DEAB55FE46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A57E373F3DC9232FB7446324E4874C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3E3F0EA585AAE8570BE2D08F5EA816E;
+			remoteInfo = JRSwizzle;
+		};
+		4B2A2CE413B0B2A763CD4223B54C3762 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6539905C4D50932B36244650B93C79B;
+			remoteInfo = Aspects;
+		};
+		A24A6732947149A85F02F59754A0271C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3E3F0EA585AAE8570BE2D08F5EA816E;
+			remoteInfo = JRSwizzle;
+		};
+		A3EF3D65C9B0FBD95A51E1A0AC1F47B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6539905C4D50932B36244650B93C79B;
+			remoteInfo = Aspects;
+		};
+		C2D7C84BBFDA3F073B60BF3234E679D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 188A4040865D49E555693A1E3F0DF5D6;
+			remoteInfo = "Pods-HoloLifecycle_Example";
+		};
+		E693DCC5E954F42DB48D9CCF428128AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99EA996A343283B090AE5199101FDD39;
+			remoteInfo = HoloLifecycle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		031AC69E5419A63E1E6025D21B382DAA /* JRSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		046B9C57A5F4BD3E5A6DF43CB4FCD184 /* Pods-HoloLifecycle_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		0D022014ABEB7EBFDF8E547EAE95F71C /* HoloLifecycle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HoloLifecycle.xcconfig; sourceTree = "<group>"; };
+		0F57468F2BF42CD6071FB76ADA975B8E /* Aspects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Aspects.modulemap; sourceTree = "<group>"; };
+		15654080D9EEF5650EE609D54EEE1155 /* Pods-HoloLifecycle_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HoloLifecycle_Example-frameworks.sh"; sourceTree = "<group>"; };
+		1810DDF5698D658987518C97FB7A59BB /* Aspects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		258E2F9373FE1C3F7C96EFFD7A1A48F1 /* HoloLifecycle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HoloLifecycle-Info.plist"; sourceTree = "<group>"; };
+		26171DE564DB49E522C0FBD5188354CB /* JRSwizzle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JRSwizzle-prefix.pch"; sourceTree = "<group>"; };
+		2E20BD86BA4B6371FC28CD8E360ABE1B /* HoloLifecycle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HoloLifecycle-dummy.m"; sourceTree = "<group>"; };
+		30C95DE1D1329964592632EA30696C16 /* JRSwizzle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JRSwizzle-dummy.m"; sourceTree = "<group>"; };
+		31DD25C0A33AE08946BCAA8E6ACE9DE6 /* JRSwizzle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JRSwizzle-Info.plist"; sourceTree = "<group>"; };
+		329C742578907351F25D3083179831A9 /* HoloLifecycle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HoloLifecycle-prefix.pch"; sourceTree = "<group>"; };
+		336A0E8566B65ADCCF5DD7DBEC5B7D48 /* Pods-HoloLifecycle_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B6F6B1F43AEA4B7128A23191C55B51E /* JRSwizzle-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JRSwizzle-umbrella.h"; sourceTree = "<group>"; };
+		3BDAF905BE747483A4000FC5EE06DF76 /* Aspects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-prefix.pch"; sourceTree = "<group>"; };
+		4299CAA4E284FEB8B481ADECFDDB1017 /* JRSwizzle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JRSwizzle.xcconfig; sourceTree = "<group>"; };
+		595424A18584A27FEFA85ABA201476B2 /* Aspects-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Aspects-Info.plist"; sourceTree = "<group>"; };
+		60B90011BC8275B08897B68D206BDF8E /* Pods-HoloLifecycle_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HoloLifecycle_Tests-dummy.m"; sourceTree = "<group>"; };
+		6BACE68DC965FE3E8C2A32785801A3F0 /* Pods-HoloLifecycle_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HoloLifecycle_Example.modulemap"; sourceTree = "<group>"; };
+		70BA860E7B60F91C76F5726E3F7B6A9B /* HoloLifecycle-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HoloLifecycle-umbrella.h"; sourceTree = "<group>"; };
+		7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8655E1C4981534D7D43D23E1CF856F89 /* Aspects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Aspects.xcconfig; sourceTree = "<group>"; };
+		875C47D3C064AD733A6865953F928996 /* HoloLifecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HoloLifecycle.framework; path = HoloLifecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E1FA33A021AC7B926A7095084DE563 /* Pods-HoloLifecycle_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HoloLifecycle_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9808BF74538141204E4EB5B49809FE77 /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Aspects.framework; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D9A704C2E73ACCE6EF3DAEA8FBA7A0A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A190B20E868ED819B7A52D54926C705A /* Pods_HoloLifecycle_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HoloLifecycle_Tests.framework; path = "Pods-HoloLifecycle_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A393D5018CA0F9A705D00E61B46A0A2E /* HoloLifecycleManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HoloLifecycleManager.m; path = HoloLifecycle/Classes/HoloLifecycleManager.m; sourceTree = "<group>"; };
+		A58BDECA5531622150DF6AA46A70B395 /* Pods-HoloLifecycle_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Example-Info.plist"; sourceTree = "<group>"; };
+		A71F9B3FCA69C756FB077B34B363D3FE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		AB6EE2EA77F03569849CB732FCF67731 /* Pods-HoloLifecycle_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HoloLifecycle_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ABC0326F0BC4F6A0F0A8ECF770978F80 /* HoloLifecycleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HoloLifecycleManager.h; path = HoloLifecycle/Classes/HoloLifecycleManager.h; sourceTree = "<group>"; };
+		B2E264F21084CB9C306E1C6D3B9088FB /* HoloLifecycle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HoloLifecycle.m; path = HoloLifecycle/Classes/HoloLifecycle.m; sourceTree = "<group>"; };
+		B38585CB8DB974036F6E4B0BDA3F6FD4 /* Aspects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-umbrella.h"; sourceTree = "<group>"; };
+		BBC5D462486D92EFCC0B1B609135704C /* Aspects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		BCF1FA161A0968ABF883AFB705ABD2E1 /* Pods-HoloLifecycle_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BF00B9FDD7BB8C94607F8205694252E1 /* JRSwizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JRSwizzle.framework; path = JRSwizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C195D2B19607158084E6E6CA5696B54F /* Pods-HoloLifecycle_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HoloLifecycle_Example-umbrella.h"; sourceTree = "<group>"; };
+		C6E33E40C0251E7FD609BF810548E87B /* HoloLifecycle.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HoloLifecycle.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CB490BE7ADB146F952BEF44C244B61FF /* Pods-HoloLifecycle_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HoloLifecycle_Tests.modulemap"; sourceTree = "<group>"; };
+		D3D9B66C4DFF577D55200B778DB3ED4A /* Pods_HoloLifecycle_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HoloLifecycle_Example.framework; path = "Pods-HoloLifecycle_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E996FDB661178AE80AC88B4CC79620 /* JRSwizzle.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JRSwizzle.modulemap; sourceTree = "<group>"; };
+		DF930EFB9AB11DE9C94B8C5F4E64EA48 /* Aspects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Aspects-dummy.m"; sourceTree = "<group>"; };
+		E0E0FD79B2E62178BCB99D0350C66CD6 /* Pods-HoloLifecycle_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HoloLifecycle_Example-dummy.m"; sourceTree = "<group>"; };
+		E6DA04FAF9653E5A80D07DD5982156CB /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8917D53B56613FEEB45674922214515 /* HoloLifecycle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HoloLifecycle.h; path = HoloLifecycle/Classes/HoloLifecycle.h; sourceTree = "<group>"; };
+		E8A5C54795BA7C564998C9A830D96A2D /* Pods-HoloLifecycle_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Tests-Info.plist"; sourceTree = "<group>"; };
+		E99DE526217BEB4B62706CAE71A52E0E /* JRSwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		EDD70FC382AE729EF027796A285FC540 /* HoloLifecycle.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HoloLifecycle.modulemap; sourceTree = "<group>"; };
+		EEA7D4DBAB7AD17CC5B1E183097AFF05 /* Pods-HoloLifecycle_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F0FD039ADA47600D64C8A3BDFA0CACA1 /* Pods-HoloLifecycle_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		F214B3406E83400E56F7E16A0C265210 /* Pods-HoloLifecycle_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F2FE543266B400ECDA18E31D5371AB0E /* JRSwizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JRSwizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA4785936B7C635D20C8EC9685562A65 /* Pods-HoloLifecycle_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HoloLifecycle_Tests-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0381A70168C35BD00B3903F19FA697F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CB1E55458F157A19F5FC83ECA16505F /* Aspects.framework in Frameworks */,
+				78DF0357E5D20C6B83B62E4D52E034BD /* Foundation.framework in Frameworks */,
+				CD5A8179D1EB7E53B79D9A3410E79A4B /* JRSwizzle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FB707FE011863B77D0221E09F0C1C5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F59088FE1761C4ED16DC61DEAB55FE46 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9943FC1B865C20DF2ED50FB7E60CBB47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				533B3D5EA2C5DF73D47948C06F20D557 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E629A5052B57775B8C8810F274297782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C5A8C64E38CD7655F1454517760C7D2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB530DCC5B73FBE648A1D456EA20B55A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46E4D715B96369AA77A570730DC39810 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16C92C9D2B4270DB081142A55E128DDD /* Pods-HoloLifecycle_Example */ = {
+			isa = PBXGroup;
+			children = (
+				6BACE68DC965FE3E8C2A32785801A3F0 /* Pods-HoloLifecycle_Example.modulemap */,
+				97E1FA33A021AC7B926A7095084DE563 /* Pods-HoloLifecycle_Example-acknowledgements.markdown */,
+				F0FD039ADA47600D64C8A3BDFA0CACA1 /* Pods-HoloLifecycle_Example-acknowledgements.plist */,
+				E0E0FD79B2E62178BCB99D0350C66CD6 /* Pods-HoloLifecycle_Example-dummy.m */,
+				15654080D9EEF5650EE609D54EEE1155 /* Pods-HoloLifecycle_Example-frameworks.sh */,
+				A58BDECA5531622150DF6AA46A70B395 /* Pods-HoloLifecycle_Example-Info.plist */,
+				C195D2B19607158084E6E6CA5696B54F /* Pods-HoloLifecycle_Example-umbrella.h */,
+				046B9C57A5F4BD3E5A6DF43CB4FCD184 /* Pods-HoloLifecycle_Example.debug.xcconfig */,
+				F214B3406E83400E56F7E16A0C265210 /* Pods-HoloLifecycle_Example.release.xcconfig */,
+			);
+			name = "Pods-HoloLifecycle_Example";
+			path = "Target Support Files/Pods-HoloLifecycle_Example";
+			sourceTree = "<group>";
+		};
+		3046325A815AA135A4F0B5470B85994A /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				E99DE526217BEB4B62706CAE71A52E0E /* JRSwizzle.h */,
+				031AC69E5419A63E1E6025D21B382DAA /* JRSwizzle.m */,
+				46B16E6F8C2F43C78A309FF4B2E77D76 /* Support Files */,
+			);
+			name = JRSwizzle;
+			path = JRSwizzle;
+			sourceTree = "<group>";
+		};
+		36BB96C647D7C0DBA0733B5004DD3384 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6DA04FAF9653E5A80D07DD5982156CB /* Aspects.framework */,
+				F2FE543266B400ECDA18E31D5371AB0E /* JRSwizzle.framework */,
+				AF6C7E3565FC05CF6693F8CCD48029EC /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44BED38FE792964D855017A4053E55B8 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C6E33E40C0251E7FD609BF810548E87B /* HoloLifecycle.podspec */,
+				A71F9B3FCA69C756FB077B34B363D3FE /* LICENSE */,
+				9D9A704C2E73ACCE6EF3DAEA8FBA7A0A /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		46B16E6F8C2F43C78A309FF4B2E77D76 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9E996FDB661178AE80AC88B4CC79620 /* JRSwizzle.modulemap */,
+				4299CAA4E284FEB8B481ADECFDDB1017 /* JRSwizzle.xcconfig */,
+				30C95DE1D1329964592632EA30696C16 /* JRSwizzle-dummy.m */,
+				31DD25C0A33AE08946BCAA8E6ACE9DE6 /* JRSwizzle-Info.plist */,
+				26171DE564DB49E522C0FBD5188354CB /* JRSwizzle-prefix.pch */,
+				3B6F6B1F43AEA4B7128A23191C55B51E /* JRSwizzle-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JRSwizzle";
+			sourceTree = "<group>";
+		};
+		4CF4C3258756E8A6812948929C837C1D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BD0F18FD26D78498A05525C816A00E3 /* HoloLifecycle */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6E4EF0BD5D451A32B37379CD9D81F635 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				16C92C9D2B4270DB081142A55E128DDD /* Pods-HoloLifecycle_Example */,
+				777114119019680A4A24C4A8B6D5B7C5 /* Pods-HoloLifecycle_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		777114119019680A4A24C4A8B6D5B7C5 /* Pods-HoloLifecycle_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CB490BE7ADB146F952BEF44C244B61FF /* Pods-HoloLifecycle_Tests.modulemap */,
+				AB6EE2EA77F03569849CB732FCF67731 /* Pods-HoloLifecycle_Tests-acknowledgements.markdown */,
+				BCF1FA161A0968ABF883AFB705ABD2E1 /* Pods-HoloLifecycle_Tests-acknowledgements.plist */,
+				60B90011BC8275B08897B68D206BDF8E /* Pods-HoloLifecycle_Tests-dummy.m */,
+				E8A5C54795BA7C564998C9A830D96A2D /* Pods-HoloLifecycle_Tests-Info.plist */,
+				FA4785936B7C635D20C8EC9685562A65 /* Pods-HoloLifecycle_Tests-umbrella.h */,
+				336A0E8566B65ADCCF5DD7DBEC5B7D48 /* Pods-HoloLifecycle_Tests.debug.xcconfig */,
+				EEA7D4DBAB7AD17CC5B1E183097AFF05 /* Pods-HoloLifecycle_Tests.release.xcconfig */,
+			);
+			name = "Pods-HoloLifecycle_Tests";
+			path = "Target Support Files/Pods-HoloLifecycle_Tests";
+			sourceTree = "<group>";
+		};
+		7974E6585E8DD2EBF8F5C49C1161B6FE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDD70FC382AE729EF027796A285FC540 /* HoloLifecycle.modulemap */,
+				0D022014ABEB7EBFDF8E547EAE95F71C /* HoloLifecycle.xcconfig */,
+				2E20BD86BA4B6371FC28CD8E360ABE1B /* HoloLifecycle-dummy.m */,
+				258E2F9373FE1C3F7C96EFFD7A1A48F1 /* HoloLifecycle-Info.plist */,
+				329C742578907351F25D3083179831A9 /* HoloLifecycle-prefix.pch */,
+				70BA860E7B60F91C76F5726E3F7B6A9B /* HoloLifecycle-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/HoloLifecycle";
+			sourceTree = "<group>";
+		};
+		7BD0F18FD26D78498A05525C816A00E3 /* HoloLifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				E8917D53B56613FEEB45674922214515 /* HoloLifecycle.h */,
+				B2E264F21084CB9C306E1C6D3B9088FB /* HoloLifecycle.m */,
+				ABC0326F0BC4F6A0F0A8ECF770978F80 /* HoloLifecycleManager.h */,
+				A393D5018CA0F9A705D00E61B46A0A2E /* HoloLifecycleManager.m */,
+				44BED38FE792964D855017A4053E55B8 /* Pod */,
+				7974E6585E8DD2EBF8F5C49C1161B6FE /* Support Files */,
+			);
+			name = HoloLifecycle;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		964A3A5E34300CFA73FB649E501A0A96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA5051D229099CC989DCEDCE1056395F /* Aspects */,
+				3046325A815AA135A4F0B5470B85994A /* JRSwizzle */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF6C7E3565FC05CF6693F8CCD48029EC /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7317F0FFC28FCFB62DE10A0ABB611FD5 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C1456C09420154C2DB4E3ED088FD84D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9808BF74538141204E4EB5B49809FE77 /* Aspects.framework */,
+				875C47D3C064AD733A6865953F928996 /* HoloLifecycle.framework */,
+				BF00B9FDD7BB8C94607F8205694252E1 /* JRSwizzle.framework */,
+				D3D9B66C4DFF577D55200B778DB3ED4A /* Pods_HoloLifecycle_Example.framework */,
+				A190B20E868ED819B7A52D54926C705A /* Pods_HoloLifecycle_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA5051D229099CC989DCEDCE1056395F /* Aspects */ = {
+			isa = PBXGroup;
+			children = (
+				BBC5D462486D92EFCC0B1B609135704C /* Aspects.h */,
+				1810DDF5698D658987518C97FB7A59BB /* Aspects.m */,
+				EC9FD1D9A65EE412FB381F87EA400A3A /* Support Files */,
+			);
+			name = Aspects;
+			path = Aspects;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				4CF4C3258756E8A6812948929C837C1D /* Development Pods */,
+				36BB96C647D7C0DBA0733B5004DD3384 /* Frameworks */,
+				964A3A5E34300CFA73FB649E501A0A96 /* Pods */,
+				C1456C09420154C2DB4E3ED088FD84D8 /* Products */,
+				6E4EF0BD5D451A32B37379CD9D81F635 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		EC9FD1D9A65EE412FB381F87EA400A3A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0F57468F2BF42CD6071FB76ADA975B8E /* Aspects.modulemap */,
+				8655E1C4981534D7D43D23E1CF856F89 /* Aspects.xcconfig */,
+				DF930EFB9AB11DE9C94B8C5F4E64EA48 /* Aspects-dummy.m */,
+				595424A18584A27FEFA85ABA201476B2 /* Aspects-Info.plist */,
+				3BDAF905BE747483A4000FC5EE06DF76 /* Aspects-prefix.pch */,
+				B38585CB8DB974036F6E4B0BDA3F6FD4 /* Aspects-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Aspects";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0AAAE51D68DC3338CC9139256EEFC95D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A3551F35742CBB434EE312B6ED9521 /* Pods-HoloLifecycle_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56999148372CA6345B11ECC54DC4FF2A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76015A37FF893DF096095CF79935F079 /* Pods-HoloLifecycle_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69888322DA1E8CC8A4DB8A00DAE6554B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B407B4BFB92CC2300EE2B3D7349C7C01 /* HoloLifecycle-umbrella.h in Headers */,
+				D3A1EC23C4A7C749A4309CEE01C759E7 /* HoloLifecycle.h in Headers */,
+				D45C1D79075C6D95E32A7D341050F800 /* HoloLifecycleManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F93E54BD32ABF6BEA21002C98722DF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				724C6F3FFEE834611903385ACED9A65F /* Aspects-umbrella.h in Headers */,
+				D29807C0AF15AB9973D93D1416EF37EB /* Aspects.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E263BA08749D6BDE379DE9EC73EF57FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D6CD69F24F674AE177667A8642E103B /* JRSwizzle-umbrella.h in Headers */,
+				24CE900336FE9A40A707AF6F34F418D2 /* JRSwizzle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		188A4040865D49E555693A1E3F0DF5D6 /* Pods-HoloLifecycle_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54EE6B48F17A07DAD429AE89637207AE /* Build configuration list for PBXNativeTarget "Pods-HoloLifecycle_Example" */;
+			buildPhases = (
+				0AAAE51D68DC3338CC9139256EEFC95D /* Headers */,
+				42994D1E08777452B25E45F3BCE30052 /* Sources */,
+				E629A5052B57775B8C8810F274297782 /* Frameworks */,
+				B7018A3B53DD297C4B56204E34CDE6DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21F5808026F8D372BB607B6CFD0E86DA /* PBXTargetDependency */,
+				F6ABBE5B2BC70B8B4B557F9390E25DEE /* PBXTargetDependency */,
+				FAF532AF052DD4BD4D4C7B32B50C91E6 /* PBXTargetDependency */,
+			);
+			name = "Pods-HoloLifecycle_Example";
+			productName = "Pods-HoloLifecycle_Example";
+			productReference = D3D9B66C4DFF577D55200B778DB3ED4A /* Pods_HoloLifecycle_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		99EA996A343283B090AE5199101FDD39 /* HoloLifecycle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 758FE1BC78AF7E450988BADCA05CD477 /* Build configuration list for PBXNativeTarget "HoloLifecycle" */;
+			buildPhases = (
+				69888322DA1E8CC8A4DB8A00DAE6554B /* Headers */,
+				B7129AB1DEE9FFF818D0683185A7FFA4 /* Sources */,
+				0381A70168C35BD00B3903F19FA697F2 /* Frameworks */,
+				7892B3C46A2F6CCB4250653466609661 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F1555276D5358AC6B849874678B68A4 /* PBXTargetDependency */,
+				92965F1F11262EC084307B4333380DA0 /* PBXTargetDependency */,
+			);
+			name = HoloLifecycle;
+			productName = HoloLifecycle;
+			productReference = 875C47D3C064AD733A6865953F928996 /* HoloLifecycle.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3E3F0EA585AAE8570BE2D08F5EA816E /* JRSwizzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A8BD287C85875A4F15E013741470C8A /* Build configuration list for PBXNativeTarget "JRSwizzle" */;
+			buildPhases = (
+				E263BA08749D6BDE379DE9EC73EF57FD /* Headers */,
+				217DB7F26D25A90A40DE561F84FAB8DA /* Sources */,
+				3FB707FE011863B77D0221E09F0C1C5B /* Frameworks */,
+				686BD825F334A6430B7026029EF227E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JRSwizzle;
+			productName = JRSwizzle;
+			productReference = BF00B9FDD7BB8C94607F8205694252E1 /* JRSwizzle.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BEE7F5D1AF14978E5DBF1999EE28BB33 /* Pods-HoloLifecycle_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E11707CA4D32CA849197F9EAFDCA434 /* Build configuration list for PBXNativeTarget "Pods-HoloLifecycle_Tests" */;
+			buildPhases = (
+				56999148372CA6345B11ECC54DC4FF2A /* Headers */,
+				6AF4D79B78ECBF174CA23F79A8C1A60A /* Sources */,
+				EB530DCC5B73FBE648A1D456EA20B55A /* Frameworks */,
+				20610C42BEE74D013AE01858F47950CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74716DD5708F683E8FDB8B1833509DF2 /* PBXTargetDependency */,
+			);
+			name = "Pods-HoloLifecycle_Tests";
+			productName = "Pods-HoloLifecycle_Tests";
+			productReference = A190B20E868ED819B7A52D54926C705A /* Pods_HoloLifecycle_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C6539905C4D50932B36244650B93C79B /* Aspects */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 481C79F5C07A881793399297BB5B77F1 /* Build configuration list for PBXNativeTarget "Aspects" */;
+			buildPhases = (
+				99F93E54BD32ABF6BEA21002C98722DF /* Headers */,
+				C4AE8E5152CE884778AC9B63E3E90C1A /* Sources */,
+				9943FC1B865C20DF2ED50FB7E60CBB47 /* Frameworks */,
+				9EFB5C01B84AD08B8E3C507B30A26819 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aspects;
+			productName = Aspects;
+			productReference = 9808BF74538141204E4EB5B49809FE77 /* Aspects.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = C1456C09420154C2DB4E3ED088FD84D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6539905C4D50932B36244650B93C79B /* Aspects */,
+				99EA996A343283B090AE5199101FDD39 /* HoloLifecycle */,
+				A3E3F0EA585AAE8570BE2D08F5EA816E /* JRSwizzle */,
+				188A4040865D49E555693A1E3F0DF5D6 /* Pods-HoloLifecycle_Example */,
+				BEE7F5D1AF14978E5DBF1999EE28BB33 /* Pods-HoloLifecycle_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20610C42BEE74D013AE01858F47950CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		686BD825F334A6430B7026029EF227E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7892B3C46A2F6CCB4250653466609661 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFB5C01B84AD08B8E3C507B30A26819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7018A3B53DD297C4B56204E34CDE6DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		217DB7F26D25A90A40DE561F84FAB8DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4939F240EFC5C2AC4B2D0014E4F8046F /* JRSwizzle-dummy.m in Sources */,
+				123B03EB293E997F01AE6786E5A5EE60 /* JRSwizzle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42994D1E08777452B25E45F3BCE30052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE3DC85CBFCBAB171FFDEFFAAD40A48F /* Pods-HoloLifecycle_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF4D79B78ECBF174CA23F79A8C1A60A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D782B3E2FFABD2D4CAFD9D4D6A7A5D4 /* Pods-HoloLifecycle_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7129AB1DEE9FFF818D0683185A7FFA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C60EAF38472CAD0770475C6AB3BBB486 /* HoloLifecycle-dummy.m in Sources */,
+				3B5C341A6AF476C38379CF0AAB516BA4 /* HoloLifecycle.m in Sources */,
+				5818B4FEC2E23A705FEBB1767B1B5AE7 /* HoloLifecycleManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AE8E5152CE884778AC9B63E3E90C1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A954361B6A6FD111452CB9DABC9B30F7 /* Aspects-dummy.m in Sources */,
+				F51A21D307B9275272758FF324F60B91 /* Aspects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21F5808026F8D372BB607B6CFD0E86DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Aspects;
+			target = C6539905C4D50932B36244650B93C79B /* Aspects */;
+			targetProxy = A3EF3D65C9B0FBD95A51E1A0AC1F47B7 /* PBXContainerItemProxy */;
+		};
+		3F1555276D5358AC6B849874678B68A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Aspects;
+			target = C6539905C4D50932B36244650B93C79B /* Aspects */;
+			targetProxy = 4B2A2CE413B0B2A763CD4223B54C3762 /* PBXContainerItemProxy */;
+		};
+		74716DD5708F683E8FDB8B1833509DF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-HoloLifecycle_Example";
+			target = 188A4040865D49E555693A1E3F0DF5D6 /* Pods-HoloLifecycle_Example */;
+			targetProxy = C2D7C84BBFDA3F073B60BF3234E679D0 /* PBXContainerItemProxy */;
+		};
+		92965F1F11262EC084307B4333380DA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JRSwizzle;
+			target = A3E3F0EA585AAE8570BE2D08F5EA816E /* JRSwizzle */;
+			targetProxy = A24A6732947149A85F02F59754A0271C /* PBXContainerItemProxy */;
+		};
+		F6ABBE5B2BC70B8B4B557F9390E25DEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HoloLifecycle;
+			target = 99EA996A343283B090AE5199101FDD39 /* HoloLifecycle */;
+			targetProxy = E693DCC5E954F42DB48D9CCF428128AA /* PBXContainerItemProxy */;
+		};
+		FAF532AF052DD4BD4D4C7B32B50C91E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JRSwizzle;
+			target = A3E3F0EA585AAE8570BE2D08F5EA816E /* JRSwizzle */;
+			targetProxy = 4A57E373F3DC9232FB7446324E4874C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18A434C92EA4DF1E08B2BB97FD22F30C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D022014ABEB7EBFDF8E547EAE95F71C /* HoloLifecycle.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HoloLifecycle/HoloLifecycle-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HoloLifecycle/HoloLifecycle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HoloLifecycle/HoloLifecycle.modulemap";
+				PRODUCT_MODULE_NAME = HoloLifecycle;
+				PRODUCT_NAME = HoloLifecycle;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		30522E7F661258991C062D6454C1B438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4299CAA4E284FEB8B481ADECFDDB1017 /* JRSwizzle.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JRSwizzle/JRSwizzle-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JRSwizzle/JRSwizzle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JRSwizzle/JRSwizzle.modulemap";
+				PRODUCT_MODULE_NAME = JRSwizzle;
+				PRODUCT_NAME = JRSwizzle;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		352C058404AFD8760FCE09EC763390B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 046B9C57A5F4BD3E5A6DF43CB4FCD184 /* Pods-HoloLifecycle_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HoloLifecycle_Example/Pods-HoloLifecycle_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HoloLifecycle_Example/Pods-HoloLifecycle_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7C74540AB9AD19B6B74FD817FF0F8E24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4299CAA4E284FEB8B481ADECFDDB1017 /* JRSwizzle.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JRSwizzle/JRSwizzle-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JRSwizzle/JRSwizzle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JRSwizzle/JRSwizzle.modulemap";
+				PRODUCT_MODULE_NAME = JRSwizzle;
+				PRODUCT_NAME = JRSwizzle;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		845EF1568EC23AD96DE109111714C18C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8655E1C4981534D7D43D23E1CF856F89 /* Aspects.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Aspects/Aspects-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Aspects/Aspects-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Aspects/Aspects.modulemap";
+				PRODUCT_MODULE_NAME = Aspects;
+				PRODUCT_NAME = Aspects;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BDA7C1875F2DE9F2EE1E56E53ACD9779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F214B3406E83400E56F7E16A0C265210 /* Pods-HoloLifecycle_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HoloLifecycle_Example/Pods-HoloLifecycle_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HoloLifecycle_Example/Pods-HoloLifecycle_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C38A89B23A48ED3C2174378512385D7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 336A0E8566B65ADCCF5DD7DBEC5B7D48 /* Pods-HoloLifecycle_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HoloLifecycle_Tests/Pods-HoloLifecycle_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HoloLifecycle_Tests/Pods-HoloLifecycle_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C93B52CB83D069FEC6C8DEA7FA44D726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEA7D4DBAB7AD17CC5B1E183097AFF05 /* Pods-HoloLifecycle_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HoloLifecycle_Tests/Pods-HoloLifecycle_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HoloLifecycle_Tests/Pods-HoloLifecycle_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EDB26D0C4D333086A3ADDF7B37AA5915 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D022014ABEB7EBFDF8E547EAE95F71C /* HoloLifecycle.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HoloLifecycle/HoloLifecycle-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HoloLifecycle/HoloLifecycle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HoloLifecycle/HoloLifecycle.modulemap";
+				PRODUCT_MODULE_NAME = HoloLifecycle;
+				PRODUCT_NAME = HoloLifecycle;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F46A072C41D0E95CFB47CC420687A31A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8655E1C4981534D7D43D23E1CF856F89 /* Aspects.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Aspects/Aspects-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Aspects/Aspects-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Aspects/Aspects.modulemap";
+				PRODUCT_MODULE_NAME = Aspects;
+				PRODUCT_NAME = Aspects;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E11707CA4D32CA849197F9EAFDCA434 /* Build configuration list for PBXNativeTarget "Pods-HoloLifecycle_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C38A89B23A48ED3C2174378512385D7E /* Debug */,
+				C93B52CB83D069FEC6C8DEA7FA44D726 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		481C79F5C07A881793399297BB5B77F1 /* Build configuration list for PBXNativeTarget "Aspects" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845EF1568EC23AD96DE109111714C18C /* Debug */,
+				F46A072C41D0E95CFB47CC420687A31A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54EE6B48F17A07DAD429AE89637207AE /* Build configuration list for PBXNativeTarget "Pods-HoloLifecycle_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352C058404AFD8760FCE09EC763390B9 /* Debug */,
+				BDA7C1875F2DE9F2EE1E56E53ACD9779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		758FE1BC78AF7E450988BADCA05CD477 /* Build configuration list for PBXNativeTarget "HoloLifecycle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18A434C92EA4DF1E08B2BB97FD22F30C /* Debug */,
+				EDB26D0C4D333086A3ADDF7B37AA5915 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A8BD287C85875A4F15E013741470C8A /* Build configuration list for PBXNativeTarget "JRSwizzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30522E7F661258991C062D6454C1B438 /* Debug */,
+				7C74540AB9AD19B6B74FD817FF0F8E24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
