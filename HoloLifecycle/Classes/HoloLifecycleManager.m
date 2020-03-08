@@ -15,7 +15,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 
 @interface HoloLifecycleManager ()
 
-@property (nonatomic, copy) NSArray *subClasses;
+@property (nonatomic, copy) NSArray<HoloLifecycle *> *subClasses;
 
 @end
 
@@ -98,8 +98,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 - (void)_aspect_hookSelectorWithDelegate:(id <UIApplicationDelegate>)delegate sel:(SEL)sel {
     [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
         
-        HoloLifecycleManager *lifecycleManager = [HoloLifecycleManager sharedInstance];
-        for (HoloLifecycle *lifecycle in lifecycleManager.subClasses) {
+        for (HoloLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].subClasses) {
             if ([lifecycle respondsToSelector:sel]) {
                 NSMethodSignature *signature = [lifecycle methodSignatureForSelector:sel];
                 NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
