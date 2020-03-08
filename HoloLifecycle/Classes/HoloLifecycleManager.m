@@ -11,7 +11,7 @@
 #import <Aspects/Aspects.h>
 #import "HoloLifecycle.h"
 
-static NSString * const kLBLifecycleClass = @"holo_lifecycle_class";
+static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 
 @interface HoloLifecycleManager ()
 
@@ -36,9 +36,9 @@ static NSString * const kLBLifecycleClass = @"holo_lifecycle_class";
 #if DEBUG
         NSArray *stringArray = [self _findAllSubClass:[HoloLifecycle class]];
         self.subClasses = [self _classArrayWithStringArray:stringArray];
-        [[NSUserDefaults standardUserDefaults] setObject:stringArray forKey:kLBLifecycleClass];
+        [[NSUserDefaults standardUserDefaults] setObject:stringArray forKey:kHoloLifecycleClass];
 #else
-        NSArray *stringArray = [[NSUserDefaults standardUserDefaults] objectForKey:kLBLifecycleClass];
+        NSArray *stringArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloLifecycleClass];
         self.subCalsses = [self _classArrayWithStringArray:stringArray];
 #endif
     }
