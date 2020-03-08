@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'HoloLifecycle_Example' do
+  pod 'HoloLifecycle', :path => '../'
+
+  target 'HoloLifecycle_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
