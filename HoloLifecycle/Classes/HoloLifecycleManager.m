@@ -35,12 +35,11 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     if (self) {
 #if DEBUG
         NSArray *stringArray = [self _findAllSubClass:[HoloLifecycle class]];
-        self.subClasses = [self _classArrayWithStringArray:stringArray];
         [[NSUserDefaults standardUserDefaults] setObject:stringArray forKey:kHoloLifecycleClass];
 #else
         NSArray *stringArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloLifecycleClass];
-        self.subCalsses = [self _classArrayWithStringArray:stringArray];
 #endif
+        self.subClasses = [self _classArrayWithStringArray:stringArray];
     }
     return self;
 }
@@ -68,7 +67,10 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
         }
     }
     free(classes);
-    return array;
+    
+    return [array sortedArrayUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString * _Nonnull obj2) {
+        return [NSClassFromString(obj1) priority] < [NSClassFromString(obj2) priority];
+    }];
 }
 
 @end
