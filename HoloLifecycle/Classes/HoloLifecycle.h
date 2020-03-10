@@ -25,11 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
-    HoloLifecyclePriorityRequired = 1000,
-    HoloLifecyclePriorityDefaultHigh = 750,
-    HoloLifecyclePriorityMedium = 500,
-    HoloLifecyclePriorityDefaultLow = 250,
-    HoloLifecyclePriorityLevel = 50
+    HoloLifecyclePriorityVeryLow = 50,
+    HoloLifecyclePriorityLow = 250,
+    HoloLifecyclePriorityMedium = 500, // 默认
+    HoloLifecyclePriorityHigh = 750,
+    HoloLifecyclePriorityVeryHigh = 1000
 };
 
 /// 调用优先级
