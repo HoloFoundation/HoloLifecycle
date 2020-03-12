@@ -9,7 +9,7 @@
 
 @implementation HoloLifecycle
 
-+ (HoloLifecyclePriority)priority {
++ (HoloLifecyclePriority)holo_priority {
     return HoloLifecyclePriorityMedium;
 }
 

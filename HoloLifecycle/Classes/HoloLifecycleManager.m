@@ -15,7 +15,9 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 
 @interface HoloLifecycleManager ()
 
-@property (nonatomic, copy) NSArray<HoloLifecycle *> *subClasses;
+@property (nonatomic, copy) NSArray<HoloLifecycle *> *beforeInstances;
+
+@property (nonatomic, copy) NSArray<HoloLifecycle *> *afterInstances;
 
 @end
 
@@ -34,26 +36,32 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     self = [super init];
     if (self) {
 #if DEBUG
-        NSArray *stringArray = [self _findAllSubClass:[HoloLifecycle class]];
-        [[NSUserDefaults standardUserDefaults] setObject:stringArray forKey:kHoloLifecycleClass];
+        NSArray *classArray = [self _findAllSubClass:[HoloLifecycle class]];
+        [[NSUserDefaults standardUserDefaults] setObject:classArray forKey:kHoloLifecycleClass];
 #else
-        NSArray *stringArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloLifecycleClass];
+        NSArray *classArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloLifecycleClass];
 #endif
-        self.subClasses = [self _classArrayWithStringArray:stringArray];
+        [self _createInstancesWithClassArray:classArray];
     }
     return self;
 }
 
-- (NSArray *)_classArrayWithStringArray:(NSArray *)stringArray {
-    NSMutableArray *classArray = [NSMutableArray new];
-    [stringArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+- (void)_createInstancesWithClassArray:(NSArray<NSString *> *)classArray {
+    NSMutableArray *beforeArray = [NSMutableArray new];
+    NSMutableArray *afterArray = [NSMutableArray new];
+    [classArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
-        if (cls) [classArray addObject:[cls new]];
+        if (cls && [cls holo_priority] >= 100) {
+            [beforeArray addObject:[cls new]];
+        } else if (cls) {
+            [afterArray addObject:[cls new]];
+        }
     }];
-    return [classArray copy];
+    self.beforeInstances = [beforeArray copy];
+    self.afterInstances = [afterArray copy];
 }
 
-- (NSArray *)_findAllSubClass:(Class)class {
+- (NSArray<NSString *> *)_findAllSubClass:(Class)class {
     // 注册类的总数
     int count = objc_getClassList(NULL, 0);
     NSMutableArray *array = [NSMutableArray new];
@@ -69,7 +77,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     free(classes);
     
     return [array sortedArrayUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString * _Nonnull obj2) {
-        return [NSClassFromString(obj1) priority] < [NSClassFromString(obj2) priority];
+        return [NSClassFromString(obj1) holo_priority] < [NSClassFromString(obj2) holo_priority];
     }];
 }
 
@@ -99,43 +107,49 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 
 - (void)_aspect_hookSelectorWithDelegate:(id <UIApplicationDelegate>)delegate sel:(SEL)sel {
     [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
-        
-        for (HoloLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].subClasses) {
-            if ([lifecycle respondsToSelector:sel]) {
-                NSMethodSignature *signature = [lifecycle methodSignatureForSelector:sel];
-                NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-                invocation.target = lifecycle;
-                invocation.selector = sel;
+        [self _invokeWithLifecycles:[HoloLifecycleManager sharedInstance].beforeInstances sel:sel info:info];
+    } error:nil];
+    [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info) {
+        [self _invokeWithLifecycles:[HoloLifecycleManager sharedInstance].afterInstances sel:sel info:info];
+    } error:nil];
+}
+
+- (void)_invokeWithLifecycles:(NSArray<HoloLifecycle *> *)lifecycles sel:(SEL)sel info:(id<AspectInfo>)info {
+    for (HoloLifecycle *lifecycle in lifecycles) {
+        if ([lifecycle respondsToSelector:sel]) {
+            NSMethodSignature *signature = [lifecycle methodSignatureForSelector:sel];
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+            invocation.target = lifecycle;
+            invocation.selector = sel;
+            
+            NSUInteger numberOfArguments = signature.numberOfArguments;
+            if (numberOfArguments > info.originalInvocation.methodSignature.numberOfArguments) {
+                NSLog(@"lifecycle has too many arguments. Not calling %@", info);
+                continue;
+            }
+            
+            void *argBuf = NULL;
+            for (NSUInteger idx = 2; idx < numberOfArguments; idx++) {
+                const char *type = [info.originalInvocation.methodSignature getArgumentTypeAtIndex:idx];
+                NSUInteger argSize;
+                NSGetSizeAndAlignment(type, &argSize, NULL);
                 
-                NSUInteger numberOfArguments = signature.numberOfArguments;
-                if (numberOfArguments > info.originalInvocation.methodSignature.numberOfArguments) {
-                    NSLog(@"lifecycle has too many arguments. Not calling %@", info);
-                    continue;
+                if (!(argBuf = reallocf(argBuf, argSize))) {
+                    NSLog(@"Failed to allocate memory for lifecycle invocation.");
+                    break;
                 }
                 
-                void *argBuf = NULL;
-                for (NSUInteger idx = 2; idx < numberOfArguments; idx++) {
-                    const char *type = [info.originalInvocation.methodSignature getArgumentTypeAtIndex:idx];
-                    NSUInteger argSize;
-                    NSGetSizeAndAlignment(type, &argSize, NULL);
-                    
-                    if (!(argBuf = reallocf(argBuf, argSize))) {
-                        NSLog(@"Failed to allocate memory for lifecycle invocation.");
-                        break;
-                    }
-                    
-                    [info.originalInvocation getArgument:argBuf atIndex:idx];
-                    [invocation setArgument:argBuf atIndex:idx];
-                }
-                
-                [invocation invoke];
-                
-                if (argBuf != NULL) {
-                    free(argBuf);
-                }
+                [info.originalInvocation getArgument:argBuf atIndex:idx];
+                [invocation setArgument:argBuf atIndex:idx];
+            }
+            
+            [invocation invoke];
+            
+            if (argBuf != NULL) {
+                free(argBuf);
             }
         }
-    } error:nil];
+    }
 }
 
 @end
