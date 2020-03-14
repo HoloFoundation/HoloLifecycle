@@ -9,7 +9,26 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+```
+@interface HoloLifecycleHomePod : HoloLifecycle
+
+@end
+
+
+@implementation HoloLifecycleHomePod
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey,id> *)launchOptions {
+    // do something
+    
+    return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // do something
+}
+
+@end
+```
 
 ## Installation
 

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'HoloLifecycle'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of HoloLifecycle.'
+  s.summary          = '组件化分发生命周期工具类'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = '所有继承 HoloLifecycle 的子类都能够拥有执行 UIApplicationDelegate 生命周期方法的能力。'
 
   s.homepage         = 'https://github.com/gonghonglou/HoloLifecycle'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'

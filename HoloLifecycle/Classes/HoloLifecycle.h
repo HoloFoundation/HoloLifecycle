@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 // ---------------------------------------------------------------------
 // 说明: 所有继承该类的子类都能够拥有执行 UIApplicationDelegate 生命周期方法的能力。
 //
-// 例如:
+// 直接在子类里实现这些方法即可，例如:
 // - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //     // Override point for customization after application launch.
 //     return YES;
