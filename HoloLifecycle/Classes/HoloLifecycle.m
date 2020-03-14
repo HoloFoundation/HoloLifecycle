@@ -10,7 +10,7 @@
 @implementation HoloLifecycle
 
 + (HoloLifecyclePriority)priority {
-    return HoloLifecyclePriorityMedium;
+    return HoloLifecyclePriorityBeforeMedium;
 }
 
 @end

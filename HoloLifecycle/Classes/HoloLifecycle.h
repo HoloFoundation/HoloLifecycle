@@ -26,20 +26,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 调用优先级
 typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
-    HoloLifecyclePriorityAfterAppDelegate = 99,     /// 晚于 AppDelegate 执行
-    HoloLifecyclePriorityBeforeAppDelegate = 101,   /// 早于 AppDelegate 执行
-    HoloLifecyclePriorityVeryLow = 150,
-    HoloLifecyclePriorityLow = 250,
-    HoloLifecyclePriorityMedium = 500,  /// default
-    HoloLifecyclePriorityHigh = 750,
-    HoloLifecyclePriorityVeryHigh = 1000
+    /// 晚于 AppDelegate 执行
+    HoloLifecyclePriorityAfterLow = 50,
+    HoloLifecyclePriorityAfterMedium = 150,
+    HoloLifecyclePriorityAfterHigh = 250,
+    /// 早于 AppDelegate 执行
+    HoloLifecyclePriorityBeforeLow = 500,
+    HoloLifecyclePriorityBeforeMedium = 750, /// default
+    HoloLifecyclePriorityBeforeHigh = 1000,
 };
 
 
 /// 调用优先级
 /// 子类重写该方法 return 合适的优先级
-/// AppDelegate 的优先级为 100，若 HoloLifecycle 子类同样定义为 100，则先于 AppDelegate 执行
-/// @return 合适的优先级，默认为 HoloLifecyclePriorityMedium
+/// AppDelegate 的优先级为 300，若 HoloLifecycle 子类同样定义为 300，则先于 AppDelegate 执行
+/// @return 合适的优先级，默认为 HoloLifecyclePriorityBeforeMedium
 + (HoloLifecyclePriority)priority;
 
 @end

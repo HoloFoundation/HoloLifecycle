@@ -59,7 +59,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     NSMutableArray *afterArray = [NSMutableArray new];
     [classArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
-        if (cls && [cls priority] >= 100) {
+        if (cls && [cls priority] >= 300) {
             [beforeArray addObject:[cls new]];
         } else if (cls) {
             [afterArray addObject:[cls new]];
