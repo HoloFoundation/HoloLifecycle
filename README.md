@@ -5,6 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/HoloLifecycle.svg?style=flat)](https://cocoapods.org/pods/HoloLifecycle)
 [![Platform](https://img.shields.io/cocoapods/p/HoloLifecycle.svg?style=flat)](https://cocoapods.org/pods/HoloLifecycle)
 
+## Blog
+
+[组件化分发生命周期](http://gonghonglou.com/2019/08/29/pod-lifecycle/)
+
+[组件化分发生命周期 - AOP 方案](http://gonghonglou.com/2020/03/08/pod-lifecycle-aop/)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -46,3 +52,5 @@ gonghonglou, gonghonglou@icloud.com
 ## License
 
 HoloLifecycle is available under the MIT license. See the LICENSE file for more info.
+
+
