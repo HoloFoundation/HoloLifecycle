@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
 /// 子类重写该方法 return 合适的优先级
 /// AppDelegate 的优先级为 100，若 HoloLifecycle 子类同样定义为 100，则先于 AppDelegate 执行
 /// @return 合适的优先级，默认为 HoloLifecyclePriorityMedium
-+ (HoloLifecyclePriority)holo_priority;
++ (HoloLifecyclePriority)priority;
 
 @end
 

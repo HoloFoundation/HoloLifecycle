@@ -11,6 +11,12 @@
 #import <Aspects/Aspects.h>
 #import "HoloLifecycle.h"
 
+#ifdef DEBUG
+#define HoloLog(...) NSLog(__VA_ARGS__)
+#else
+#define HoloLog(...)
+#endif
+
 static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 
 @interface HoloLifecycleManager ()
@@ -18,6 +24,8 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 @property (nonatomic, copy) NSArray<HoloLifecycle *> *beforeInstances;
 
 @property (nonatomic, copy) NSArray<HoloLifecycle *> *afterInstances;
+
+@property (nonatomic, assign) BOOL hasLog;
 
 @end
 
@@ -51,7 +59,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     NSMutableArray *afterArray = [NSMutableArray new];
     [classArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
-        if (cls && [cls holo_priority] >= 100) {
+        if (cls && [cls priority] >= 100) {
             [beforeArray addObject:[cls new]];
         } else if (cls) {
             [afterArray addObject:[cls new]];
@@ -77,8 +85,13 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     free(classes);
     
     return [array sortedArrayUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString * _Nonnull obj2) {
-        return [NSClassFromString(obj1) holo_priority] < [NSClassFromString(obj2) holo_priority];
+        return [NSClassFromString(obj1) priority] < [NSClassFromString(obj2) priority];
     }];
+}
+
+// 打印所有 HoloLifecycle 子类执行方法及耗时
+- (void)logSelectorsAndPerformTime {
+    self.hasLog = YES;
 }
 
 @end
@@ -87,6 +100,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 @implementation UIApplication (HoloLifecycle)
 
 + (void)load {
+    [HoloLifecycleManager sharedInstance].hasLog = YES;
     [self jr_swizzleMethod:@selector(setDelegate:) withMethod:@selector(_lb_setDelegate:) error:nil];
 }
 
@@ -117,6 +131,13 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 - (void)_invokeWithLifecycles:(NSArray<HoloLifecycle *> *)lifecycles sel:(SEL)sel info:(id<AspectInfo>)info {
     for (HoloLifecycle *lifecycle in lifecycles) {
         if ([lifecycle respondsToSelector:sel]) {
+#ifdef DEBUG
+            NSTimeInterval startTime = 0.0;
+            if ([HoloLifecycleManager sharedInstance].hasLog) {
+                startTime = [[NSDate date] timeIntervalSince1970]*1000;
+            }
+#endif
+            
             NSMethodSignature *signature = [lifecycle methodSignatureForSelector:sel];
             NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
             invocation.target = lifecycle;
@@ -124,7 +145,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
             
             NSUInteger numberOfArguments = signature.numberOfArguments;
             if (numberOfArguments > info.originalInvocation.methodSignature.numberOfArguments) {
-                NSLog(@"lifecycle has too many arguments. Not calling %@", info);
+                HoloLog(@"lifecycle has too many arguments. Not calling %@", info);
                 continue;
             }
             
@@ -135,7 +156,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
                 NSGetSizeAndAlignment(type, &argSize, NULL);
                 
                 if (!(argBuf = reallocf(argBuf, argSize))) {
-                    NSLog(@"Failed to allocate memory for lifecycle invocation.");
+                    HoloLog(@"Failed to allocate memory for lifecycle invocation.");
                     break;
                 }
                 
@@ -148,6 +169,14 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
             if (argBuf != NULL) {
                 free(argBuf);
             }
+            
+#ifdef DEBUG
+            if ([HoloLifecycleManager sharedInstance].hasLog) {
+                NSTimeInterval endTime = [[NSDate date] timeIntervalSince1970]*1000;
+                NSTimeInterval time = endTime - startTime;
+                HoloLog(@"lifecycle: %@, selector: %@, performTime: %f milliseconds", NSStringFromClass([lifecycle class]), NSStringFromSelector(sel), time);
+            }
+#endif
         }
     }
 }
