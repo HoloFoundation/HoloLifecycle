@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 调用优先级
 typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
-    HoloLifecyclePriorityAfterAppDelegate = 99,     /// 早于 AppDelegate 执行
-    HoloLifecyclePriorityBeforeAppDelegate = 101,   /// 晚于 AppDelegate 执行
+    HoloLifecyclePriorityAfterAppDelegate = 99,     /// 晚于 AppDelegate 执行
+    HoloLifecyclePriorityBeforeAppDelegate = 101,   /// 早于 AppDelegate 执行
     HoloLifecyclePriorityVeryLow = 150,
     HoloLifecyclePriorityLow = 250,
     HoloLifecyclePriorityMedium = 500,  /// default
