@@ -101,10 +101,10 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 
 + (void)load {
     [HoloLifecycleManager sharedInstance].hasLog = YES;
-    [self jr_swizzleMethod:@selector(setDelegate:) withMethod:@selector(_lb_setDelegate:) error:nil];
+    [self jr_swizzleMethod:@selector(setDelegate:) withMethod:@selector(_holo_setDelegate:) error:nil];
 }
 
-- (void)_lb_setDelegate:(id <UIApplicationDelegate>)delegate {
+- (void)_holo_setDelegate:(id <UIApplicationDelegate>)delegate {
     unsigned count = 0;
     Method *methods = class_copyMethodList([delegate class], &count);
     for (int i = 0; i < count; i++) {
@@ -116,7 +116,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
         }
     }
     
-    [self _lb_setDelegate:delegate];
+    [self _holo_setDelegate:delegate];
 }
 
 - (void)_aspect_hookSelectorWithDelegate:(id <UIApplicationDelegate>)delegate sel:(SEL)sel {
