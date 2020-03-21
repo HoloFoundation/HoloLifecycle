@@ -26,13 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 调用优先级
 typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
-    /// 晚于 AppDelegate 执行
+    // 晚于 AppDelegate 执行
     HoloLifecyclePriorityAfterLow = 50,
     HoloLifecyclePriorityAfterMedium = 150,
     HoloLifecyclePriorityAfterHigh = 250,
-    /// 早于 AppDelegate 执行
+    // 早于 AppDelegate 执行
     HoloLifecyclePriorityBeforeLow = 500,
-    HoloLifecyclePriorityBeforeMedium = 750, /// default
+    HoloLifecyclePriorityBeforeMedium = 750, // default
     HoloLifecyclePriorityBeforeHigh = 1000,
 };
 

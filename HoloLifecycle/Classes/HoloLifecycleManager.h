@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 /// 打印所有 HoloLifecycle 子类执行方法及耗时
-/// 在 + load 方法里调用该方法，以保证该方法早于 UIApplicationDelegate 方法调用
+/// 在任意 + load 方法里调用该方法，以保证该方法早于 UIApplicationDelegate 方法调用
 - (void)logSelectorsAndPerformTime;
 
 @end
