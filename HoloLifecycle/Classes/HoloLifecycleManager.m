@@ -7,7 +7,6 @@
 
 #import "HoloLifecycleManager.h"
 #import <objc/runtime.h>
-#import <JRSwizzle/JRSwizzle.h>
 #import <Aspects/Aspects.h>
 #import "HoloLifecycle.h"
 
@@ -100,7 +99,23 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 @implementation UIApplication (HoloLifecycle)
 
 + (void)load {
-    [self jr_swizzleMethod:@selector(setDelegate:) withMethod:@selector(_holo_setDelegate:) error:nil];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];
+        
+        SEL originalSelector = @selector(setDelegate:);
+        SEL swizzledSelector = @selector(_holo_setDelegate:);
+        
+        Method originalMethod = class_getInstanceMethod(class, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+        
+        BOOL success = class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+        if (success) {
+            class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+    });
 }
 
 - (void)_holo_setDelegate:(id <UIApplicationDelegate>)delegate {
