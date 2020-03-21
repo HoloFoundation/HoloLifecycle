@@ -100,7 +100,6 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
 @implementation UIApplication (HoloLifecycle)
 
 + (void)load {
-    [HoloLifecycleManager sharedInstance].hasLog = YES;
     [self jr_swizzleMethod:@selector(setDelegate:) withMethod:@selector(_holo_setDelegate:) error:nil];
 }
 
