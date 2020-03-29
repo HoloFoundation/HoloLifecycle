@@ -17,6 +17,7 @@
 #endif
 
 static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
+static NSInteger const kAppDelegatePriority = 300;
 
 @interface HoloLifecycleManager ()
 
@@ -43,7 +44,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     self = [super init];
     if (self) {
 #if DEBUG
-        NSArray *classArray = [self _findAllSubClass:[HoloLifecycle class]];
+        NSArray *classArray = [self _findAllHoloLifecycleSubClass];
         [[NSUserDefaults standardUserDefaults] setObject:classArray forKey:kHoloLifecycleClass];
 #else
         NSArray *classArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloLifecycleClass];
@@ -58,7 +59,7 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     NSMutableArray *afterArray = [NSMutableArray new];
     [classArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
-        if (cls && [cls priority] >= 300) {
+        if (cls && [cls priority] >= kAppDelegatePriority) {
             [beforeArray addObject:[cls new]];
         } else if (cls) {
             [afterArray addObject:[cls new]];
@@ -68,24 +69,51 @@ static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
     self.afterInstances = [afterArray copy];
 }
 
-- (NSArray<NSString *> *)_findAllSubClass:(Class)class {
+- (NSArray<NSString *> *)_findAllHoloLifecycleSubClass {
     // 注册类的总数
     int count = objc_getClassList(NULL, 0);
     NSMutableArray *array = [NSMutableArray new];
     // 获取所有已注册的类
-    Class *classes = (Class *)malloc(sizeof(Class) * count);
-    objc_getClassList(classes, count);
+    Class *class = (Class *)malloc(sizeof(Class) * count);
+    objc_getClassList(class, count);
     
     for (int i = 0; i < count; i++) {
-        if (class == class_getSuperclass(classes[i])) {
-            [array addObject:[NSString stringWithFormat:@"%@", classes[i]]];
+        Class cls = class[i];
+        if (class_getSuperclass(cls) == [HoloLifecycle class] && [cls autoRegister]) {
+            [array addObject:NSStringFromClass(cls)];
         }
     }
-    free(classes);
+    free(class);
     
     return [array sortedArrayUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString * _Nonnull obj2) {
         return [NSClassFromString(obj1) priority] < [NSClassFromString(obj2) priority];
     }];
+}
+
+
+// 手动注册生命周期类
+- (void)registerLifecycle:(Class)lifecycle {
+    if (class_getSuperclass(lifecycle) != [HoloLifecycle class]) return;
+    
+    NSArray *instances;
+    NSInteger priority = [lifecycle priority];
+    if (priority >= kAppDelegatePriority) {
+        instances = self.beforeInstances;
+    } else {
+        instances = self.afterInstances;
+    }
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:instances];
+    [instances enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([[obj class] priority] <= priority) {
+            [mutableArray insertObject:[lifecycle new] atIndex:idx];
+            *stop = YES;
+        }
+    }];
+    if (priority >= kAppDelegatePriority) {
+        self.beforeInstances = [mutableArray copy];
+    } else {
+        self.afterInstances = [mutableArray copy];
+    }
 }
 
 // 打印所有 HoloLifecycle 子类执行方法及耗时

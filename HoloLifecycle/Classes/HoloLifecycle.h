@@ -43,6 +43,17 @@ typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
 /// @return 合适的优先级，默认为 HoloLifecyclePriorityBeforeMedium
 + (HoloLifecyclePriority)priority;
 
+
+/// 自动注册
+/// 子类重写该方法决定是否自动注册
+/// @return 是否自动注册，默认为 YES
++ (BOOL)autoRegister;
+
+
+/// 手动注册生命周期类
+/// 在 + load 方法内注册
++ (void)registerLifecycle;
+
 @end
 
 NS_ASSUME_NONNULL_END
