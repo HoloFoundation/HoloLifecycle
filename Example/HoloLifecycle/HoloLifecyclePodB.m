@@ -16,5 +16,13 @@
     return YES;
 }
 
++ (BOOL)autoRegister {
+    return NO;
+}
+
++ (void)load {
+    [self registerLifecycle];
+//    [[HoloLifecycleManager sharedInstance] registerLifecycle:self];
+}
 
 @end
