@@ -11,6 +11,14 @@
 
 [组件化分发生命周期 - AOP 方案](http://gonghonglou.com/2020/03/08/pod-lifecycle-aop/)
 
+
+直接创建  `HoloLifecycle`  的子类，并实现  `UIApplicationDelegate`  方法即可。 
+
+`HoloLifecycle` 将分发主工程的 `UIApplicationDelegate`  生命周期到这些子类上。
+
+具体的能力参见以上博客及：[HoloLifecycle.h](https://github.com/gonghonglou/HoloLifecycle/blob/master/HoloLifecycle/Classes/HoloLifecycle.h) 头文件
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
