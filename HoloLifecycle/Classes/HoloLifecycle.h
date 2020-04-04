@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, HoloLifecyclePriority) {
 
 
 /// 手动注册生命周期类
-/// 在 + load 方法内注册
+/// 子类在 + load 方法内调用该方法注册
 + (void)registerLifecycle;
 
 @end
