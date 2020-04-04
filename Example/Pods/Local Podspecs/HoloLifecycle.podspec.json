@@ -1,6 +1,6 @@
 {
   "name": "HoloLifecycle",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "summary": "组件化分发生命周期工具类",
   "description": "所有继承 HoloLifecycle 的子类都能够拥有执行 UIApplicationDelegate 生命周期方法的能力。",
   "homepage": "https://github.com/gonghonglou/HoloLifecycle",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/gonghonglou/HoloLifecycle.git",
-    "tag": "0.2.0"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "8.0"
