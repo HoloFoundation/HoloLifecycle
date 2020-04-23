@@ -174,9 +174,9 @@ static NSInteger const kAppDelegatePriority = 300;
     for (HoloLifecycle *lifecycle in lifecycles) {
         if ([lifecycle respondsToSelector:sel]) {
 #ifdef DEBUG
-            NSTimeInterval startTime = 0.0;
+            NSDate *startTime = nil;
             if ([HoloLifecycleManager sharedInstance].hasLog) {
-                startTime = [[NSDate date] timeIntervalSince1970]*1000;
+                startTime = [NSDate date];
             }
 #endif
             
@@ -214,9 +214,8 @@ static NSInteger const kAppDelegatePriority = 300;
             
 #ifdef DEBUG
             if ([HoloLifecycleManager sharedInstance].hasLog) {
-                NSTimeInterval endTime = [[NSDate date] timeIntervalSince1970]*1000;
-                NSTimeInterval time = endTime - startTime;
-                HoloLog(@"lifecycle: %@, selector: %@, performTime: %f milliseconds", NSStringFromClass([lifecycle class]), NSStringFromSelector(sel), time);
+                NSTimeInterval time = -[startTime timeIntervalSinceNow]*1000;
+                HoloLog(@"\nlifecycle: %@\nselector: %@\nperformTime: %f milliseconds", NSStringFromClass([lifecycle class]), NSStringFromSelector(sel), time);
             }
 #endif
         }
