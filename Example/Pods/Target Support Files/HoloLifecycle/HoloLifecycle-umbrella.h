@@ -10,9 +10,10 @@
 #endif
 #endif
 
-#import "HoloLifecycle.h"
+#import "HoloBaseLifecycle.h"
 #import "HoloLifecycleManager.h"
 #import "HoloLifecycleProtocol.h"
+#import "HoloLifecycle.h"
 
 FOUNDATION_EXPORT double HoloLifecycleVersionNumber;
 FOUNDATION_EXPORT const unsigned char HoloLifecycleVersionString[];

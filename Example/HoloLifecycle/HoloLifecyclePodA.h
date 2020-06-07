@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HoloLifecyclePodA : HoloLifecycle
+@interface HoloLifecyclePodA : HoloBaseLifecycle
 
 @end
 

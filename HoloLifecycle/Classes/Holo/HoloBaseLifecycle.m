@@ -1,13 +1,14 @@
 //
-//  HoloLifecycle.m
+//  HoloBaseLifecycle.m
 //  HoloLifecycle
 //
-//  Created by 与佳期 on 2020/3/8.
+//  Created by 与佳期 on 2020/6/7.
 //
 
-#import "HoloLifecycle.h"
+#import "HoloBaseLifecycle.h"
+#import "HoloLifecycleManager.h"
 
-@implementation HoloLifecycle
+@implementation HoloBaseLifecycle
 
 + (void)registerLifecycle {
     [[HoloLifecycleManager sharedInstance] registerLifecycle:self];

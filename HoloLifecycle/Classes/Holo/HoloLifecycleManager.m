@@ -8,7 +8,7 @@
 #import "HoloLifecycleManager.h"
 #import <objc/runtime.h>
 #import <Aspects/Aspects.h>
-#import "HoloLifecycle.h"
+#import "HoloBaseLifecycle.h"
 
 #ifdef DEBUG
 #define HoloLog(...) NSLog(__VA_ARGS__)
@@ -16,14 +16,14 @@
 #define HoloLog(...)
 #endif
 
-static NSString * const kHoloLifecycleClass = @"holo_lifecycle_class";
+static NSString * const kHoloBaseLifecycleSubClass = @"holo_base_lifecycle_sub_class";
 static NSInteger const kAppDelegatePriority = 300;
 
 @interface HoloLifecycleManager ()
 
-@property (nonatomic, copy) NSArray<HoloLifecycle *> *beforeInstances;
+@property (nonatomic, copy) NSArray<HoloBaseLifecycle *> *beforeInstances;
 
-@property (nonatomic, copy) NSArray<HoloLifecycle *> *afterInstances;
+@property (nonatomic, copy) NSArray<HoloBaseLifecycle *> *afterInstances;
 
 @property (nonatomic, assign) BOOL hasLog;
 
@@ -44,10 +44,10 @@ static NSInteger const kAppDelegatePriority = 300;
     self = [super init];
     if (self) {
 #if DEBUG
-        NSArray *classArray = [self _findAllHoloLifecycleSubClass];
-        [[NSUserDefaults standardUserDefaults] setObject:classArray forKey:kHoloLifecycleClass];
+        NSArray *classArray = [self _findAllHoloBaseLifecycleSubClass];
+        [[NSUserDefaults standardUserDefaults] setObject:classArray forKey:kHoloBaseLifecycleSubClass];
 #else
-        NSArray *classArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloLifecycleClass];
+        NSArray *classArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloBaseLifecycleSubClass];
 #endif
         [self _createInstancesWithClassArray:classArray];
     }
@@ -69,7 +69,7 @@ static NSInteger const kAppDelegatePriority = 300;
     self.afterInstances = [afterArray copy];
 }
 
-- (NSArray<NSString *> *)_findAllHoloLifecycleSubClass {
+- (NSArray<NSString *> *)_findAllHoloBaseLifecycleSubClass {
     // 注册类的总数
     int count = objc_getClassList(NULL, 0);
     NSMutableArray *array = [NSMutableArray new];
@@ -79,7 +79,7 @@ static NSInteger const kAppDelegatePriority = 300;
     
     for (int i = 0; i < count; i++) {
         Class cls = class[i];
-        if (class_getSuperclass(cls) == [HoloLifecycle class] && [cls autoRegister]) {
+        if (class_getSuperclass(cls) == [HoloBaseLifecycle class] && [cls autoRegister]) {
             [array addObject:NSStringFromClass(cls)];
         }
     }
@@ -93,7 +93,7 @@ static NSInteger const kAppDelegatePriority = 300;
 
 // 手动注册生命周期类
 - (void)registerLifecycle:(Class)lifecycle {
-    NSArray<HoloLifecycle *> *instances;
+    NSArray<HoloBaseLifecycle *> *instances;
     
     NSInteger priority = HoloLifecyclePriorityBeforeMedium;
     if ([lifecycle respondsToSelector:@selector(priority)]) {
@@ -108,7 +108,7 @@ static NSInteger const kAppDelegatePriority = 300;
 
     id lifecycleInstance = [lifecycle new];
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:instances];
-    [instances enumerateObjectsUsingBlock:^(HoloLifecycle * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [instances enumerateObjectsUsingBlock:^(HoloBaseLifecycle * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSInteger objPriority = HoloLifecyclePriorityBeforeMedium;
         if ([[obj class] respondsToSelector:@selector(priority)]) {
@@ -132,7 +132,7 @@ static NSInteger const kAppDelegatePriority = 300;
     }
 }
 
-// 打印所有 HoloLifecycle 子类执行方法及耗时
+// 打印所有 HoloBaseLifecycle 子类执行方法及耗时
 - (void)logSelectorsAndPerformTime {
     self.hasLog = YES;
 }
@@ -186,8 +186,8 @@ static NSInteger const kAppDelegatePriority = 300;
     } error:nil];
 }
 
-- (void)_invokeWithLifecycles:(NSArray<HoloLifecycle *> *)lifecycles sel:(SEL)sel info:(id<AspectInfo>)info {
-    for (HoloLifecycle *lifecycle in lifecycles) {
+- (void)_invokeWithLifecycles:(NSArray<HoloBaseLifecycle *> *)lifecycles sel:(SEL)sel info:(id<AspectInfo>)info {
+    for (HoloBaseLifecycle *lifecycle in lifecycles) {
         if ([lifecycle respondsToSelector:sel]) {
 #ifdef DEBUG
             NSDate *startTime = nil;
