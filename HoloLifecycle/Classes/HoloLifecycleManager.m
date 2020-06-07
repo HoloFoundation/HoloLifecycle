@@ -16,7 +16,7 @@
 #define HoloLog(...)
 #endif
 
-static NSString * const kHoloLifecycleClass = @"_holo_lifecycle_class_";
+static NSString * const kHoloLifecycleClass = @"holo_lifecycle_class";
 static NSInteger const kAppDelegatePriority = 300;
 
 @interface HoloLifecycleManager ()
@@ -93,22 +93,38 @@ static NSInteger const kAppDelegatePriority = 300;
 
 // 手动注册生命周期类
 - (void)registerLifecycle:(Class)lifecycle {
-    if (class_getSuperclass(lifecycle) != [HoloLifecycle class]) return;
+    NSArray<HoloLifecycle *> *instances;
     
-    NSArray *instances;
-    NSInteger priority = [lifecycle priority];
+    NSInteger priority = HoloLifecyclePriorityBeforeMedium;
+    if ([lifecycle respondsToSelector:@selector(priority)]) {
+        priority = [lifecycle priority];
+    }
+    
     if (priority >= kAppDelegatePriority) {
         instances = self.beforeInstances;
     } else {
         instances = self.afterInstances;
     }
+
+    id lifecycleInstance = [lifecycle new];
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:instances];
-    [instances enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([[obj class] priority] <= priority) {
-            [mutableArray insertObject:[lifecycle new] atIndex:idx];
+    [instances enumerateObjectsUsingBlock:^(HoloLifecycle * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSInteger objPriority = HoloLifecyclePriorityBeforeMedium;
+        if ([[obj class] respondsToSelector:@selector(priority)]) {
+            objPriority = [[obj class] priority];
+        }
+        
+        if (objPriority < priority) {
+            [mutableArray insertObject:lifecycleInstance atIndex:idx];
             *stop = YES;
         }
     }];
+    
+    if (![mutableArray containsObject:lifecycleInstance]) {
+        [mutableArray addObject:lifecycleInstance];
+    }
+    
     if (priority >= kAppDelegatePriority) {
         self.beforeInstances = [mutableArray copy];
     } else {

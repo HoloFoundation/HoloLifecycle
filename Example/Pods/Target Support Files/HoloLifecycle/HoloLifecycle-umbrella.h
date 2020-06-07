@@ -12,6 +12,7 @@
 
 #import "HoloLifecycle.h"
 #import "HoloLifecycleManager.h"
+#import "HoloLifecycleProtocol.h"
 
 FOUNDATION_EXPORT double HoloLifecycleVersionNumber;
 FOUNDATION_EXPORT const unsigned char HoloLifecycleVersionString[];

@@ -6,9 +6,12 @@
 //
 
 #import "HoloLifecycle.h"
-#import "HoloLifecycleManager.h"
 
 @implementation HoloLifecycle
+
++ (void)registerLifecycle {
+    [[HoloLifecycleManager sharedInstance] registerLifecycle:self];
+}
 
 + (HoloLifecyclePriority)priority {
     return HoloLifecyclePriorityBeforeMedium;
@@ -16,10 +19,6 @@
 
 + (BOOL)autoRegister {
     return YES;
-}
-
-+ (void)registerLifecycle {
-    [[HoloLifecycleManager sharedInstance] registerLifecycle:self];
 }
 
 @end

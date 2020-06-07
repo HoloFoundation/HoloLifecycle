@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 手动注册生命周期类
 /// 在 + load 方法内注册
-/// @param lifecycle 仅接收 HoloLifecycle 的子类
+/// @param lifecycle 生命周期类
 - (void)registerLifecycle:(Class)lifecycle;
 
 /// 打印所有 HoloLifecycle 子类执行方法及耗时
