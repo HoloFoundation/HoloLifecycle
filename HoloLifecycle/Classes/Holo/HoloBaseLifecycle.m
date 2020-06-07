@@ -10,12 +10,12 @@
 
 @implementation HoloBaseLifecycle
 
-+ (void)registerLifecycle {
-    [[HoloLifecycleManager sharedInstance] registerLifecycle:self];
-}
-
 + (HoloLifecyclePriority)priority {
     return HoloLifecyclePriorityBeforeMedium;
+}
+
++ (void)registerLifecycle {
+    [[HoloLifecycleManager sharedInstance] registerLifecycle:self];
 }
 
 + (BOOL)autoRegister {
