@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HoloLifecycle'
-  s.version          = '0.3.0'
+  s.version          = '1.0.0'
   s.summary          = '组件化分发生命周期工具类'
 
 # This description is used to generate tags and improve search results.
@@ -17,13 +17,13 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = '所有继承 HoloLifecycle 的子类都能够拥有执行 UIApplicationDelegate 生命周期方法的能力。'
+  s.description      = '所有继承 HoloBaseLifecycle 的子类都能够拥有执行 UIApplicationDelegate 生命周期方法的能力。或者，任意类在 load 方法内使用 HoloLifecycleManager 方法进行注册，遵循 HoloLifecycleProtocol 协议指定优先级 也可拥有执行 UIApplicationDelegate 生命周期方法的能力。'
 
-  s.homepage         = 'https://github.com/gonghonglou/HoloLifecycle'
+  s.homepage         = 'https://github.com/HoloFoundation/HoloLifecycle'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gonghonglou' => 'gonghonglou@icloud.com' }
-  s.source           = { :git => 'https://github.com/gonghonglou/HoloLifecycle.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/HoloFoundation/HoloLifecycle.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
