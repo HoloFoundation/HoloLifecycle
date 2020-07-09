@@ -11,6 +11,7 @@
 #endif
 
 #import "HoloBaseLifecycle.h"
+#import "HoloLifecycleMacro.h"
 #import "HoloLifecycleManager.h"
 #import "HoloLifecycleProtocol.h"
 #import "HoloLifecycle.h"

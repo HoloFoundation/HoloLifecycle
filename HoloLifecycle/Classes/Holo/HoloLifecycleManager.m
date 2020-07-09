@@ -9,12 +9,7 @@
 #import <objc/runtime.h>
 #import <Aspects/Aspects.h>
 #import "HoloBaseLifecycle.h"
-
-#ifdef DEBUG
-#define HoloLog(...) NSLog(__VA_ARGS__)
-#else
-#define HoloLog(...)
-#endif
+#import "HoloLifecycleMacro.h"
 
 static NSString * const kHoloBaseLifecycleSubClass = @"holo_base_lifecycle_sub_class";
 static NSInteger const kAppDelegatePriority = 300;
@@ -24,6 +19,8 @@ static NSInteger const kAppDelegatePriority = 300;
 @property (nonatomic, copy) NSArray<HoloBaseLifecycle *> *beforeInstances;
 
 @property (nonatomic, copy) NSArray<HoloBaseLifecycle *> *afterInstances;
+
+@property (nonatomic, strong) dispatch_semaphore_t lock;
 
 @property (nonatomic, assign) BOOL hasLog;
 
@@ -93,6 +90,7 @@ static NSInteger const kAppDelegatePriority = 300;
 
 // 手动注册生命周期类
 - (void)registerLifecycle:(Class)lifecycle {
+    HOLO_LOCK(self.lock);
     NSArray<HoloBaseLifecycle *> *instances;
     
     NSInteger priority = HoloLifecyclePriorityBeforeMedium;
@@ -130,11 +128,20 @@ static NSInteger const kAppDelegatePriority = 300;
     } else {
         self.afterInstances = [mutableArray copy];
     }
+    HOLO_UNLOCK(self.lock);
 }
 
 // 打印所有 HoloBaseLifecycle 子类执行方法及耗时
 - (void)logSelectorsAndPerformTime {
     self.hasLog = YES;
+}
+
+#pragma mark - getter
+- (dispatch_semaphore_t)lock {
+    if (!_lock) {
+        _lock = dispatch_semaphore_create(1);
+    }
+    return _lock;
 }
 
 @end
