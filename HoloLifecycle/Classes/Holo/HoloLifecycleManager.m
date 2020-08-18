@@ -11,7 +11,6 @@
 #import "HoloBaseLifecycle.h"
 #import "HoloLifecycleMacro.h"
 
-static NSString * const kHoloBaseLifecycleSubClass = @"holo_base_lifecycle_sub_class";
 static NSInteger const kAppDelegatePriority = 300;
 
 @interface HoloLifecycleManager ()
@@ -40,12 +39,7 @@ static NSInteger const kAppDelegatePriority = 300;
 - (instancetype)init {
     self = [super init];
     if (self) {
-#if DEBUG
         NSArray *classArray = [self _findAllHoloBaseLifecycleSubClass];
-        [[NSUserDefaults standardUserDefaults] setObject:classArray forKey:kHoloBaseLifecycleSubClass];
-#else
-        NSArray *classArray = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloBaseLifecycleSubClass];
-#endif
         [self _createInstancesWithClassArray:classArray];
     }
     return self;
