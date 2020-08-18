@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HoloLifecycle'
-  s.version          = '1.0.0'
+  s.version          = '2.0.0'
   s.summary          = '组件化分发生命周期工具类'
 
 # This description is used to generate tags and improve search results.

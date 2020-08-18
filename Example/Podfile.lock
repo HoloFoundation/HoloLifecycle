@@ -1,6 +1,6 @@
 PODS:
   - Aspects (1.4.1)
-  - HoloLifecycle (1.0.0):
+  - HoloLifecycle (2.0.0):
     - Aspects
 
 DEPENDENCIES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  HoloLifecycle: b93ffcc09d36f18629b58a7f0d36d5535472be81
+  HoloLifecycle: a00743385449a688a1df3b594d27fd84058abd80
 
 PODFILE CHECKSUM: 76f1d25e350d8f1a855b9682df15540670624047
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
