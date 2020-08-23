@@ -39,5 +39,6 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   
   s.dependency 'Aspects'
+  s.vendored_libraries = 'HoloLifecycle/Classes/libffi/libffi.a'
   
 end

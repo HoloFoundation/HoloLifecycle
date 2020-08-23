@@ -23,5 +23,6 @@
     "Aspects": [
 
     ]
-  }
+  },
+  "vendored_libraries": "HoloLifecycle/Classes/libffi/libffi.a"
 }
