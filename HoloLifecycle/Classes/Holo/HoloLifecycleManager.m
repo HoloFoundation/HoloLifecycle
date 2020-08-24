@@ -11,6 +11,9 @@
 #import "HoloBaseLifecycle.h"
 #import "HoloLifecycleMacro.h"
 
+static NSString * const kHoloBaseLifecycleCacheInfoKey      = @"holo_base_lifecycle_cache_info_key";
+static NSString * const kHoloBaseLifecycleCacheAppVersion   = @"holo_base_lifecycle_cache_app_version";
+static NSString * const kHoloBaseLifecycleCacheSubClasses   = @"holo_base_lifecycle_cache_sub_classes";
 static NSInteger const kAppDelegatePriority = 300;
 
 @interface HoloLifecycleManager ()
@@ -39,7 +42,25 @@ static NSInteger const kAppDelegatePriority = 300;
 - (instancetype)init {
     self = [super init];
     if (self) {
+#if DEBUG
         NSArray *classArray = [self _findAllHoloBaseLifecycleSubClass];
+#else
+        NSDictionary *cacheInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kHoloBaseLifecycleCacheInfoKey];
+        NSString *cacheAppVersion = cacheInfo[kHoloBaseLifecycleCacheAppVersion];
+        NSString *appVersion = [NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        
+        NSArray *classArray = nil;
+        if ([cacheAppVersion isEqualToString:appVersion]) {
+            classArray = cacheInfo[kHoloBaseLifecycleCacheSubClasses];
+        } else {
+            classArray = [self _findAllHoloBaseLifecycleSubClass];
+            cacheInfo = @{
+                kHoloBaseLifecycleCacheAppVersion : appVersion,
+                kHoloBaseLifecycleCacheSubClasses : classArray
+            };
+            [[NSUserDefaults standardUserDefaults] setObject:cacheInfo forKey:kHoloBaseLifecycleCacheInfoKey];
+        }
+#endif
         [self _createInstancesWithClassArray:classArray];
     }
     return self;

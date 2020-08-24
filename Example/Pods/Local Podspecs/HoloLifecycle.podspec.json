@@ -1,6 +1,6 @@
 {
   "name": "HoloLifecycle",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "summary": "组件化分发生命周期工具类",
   "description": "所有继承 HoloBaseLifecycle 的子类都能够拥有执行 UIApplicationDelegate 生命周期方法的能力。或者，任意类在 load 方法内使用 HoloLifecycleManager 方法进行注册，遵循 HoloLifecycleProtocol 协议指定优先级 也可拥有执行 UIApplicationDelegate 生命周期方法的能力。",
   "homepage": "https://github.com/HoloFoundation/HoloLifecycle",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/HoloFoundation/HoloLifecycle.git",
-    "tag": "2.0.0"
+    "tag": "2.1.0"
   },
   "platforms": {
     "ios": "8.0"
