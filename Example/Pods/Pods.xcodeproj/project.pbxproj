@@ -7,44 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		011D7FFF87C77790014F41011DA18D7D /* ffitarget_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BAD88A1DE659FC088756D4E6684FD11 /* ffitarget_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0728A096ED50E8157249FB79EA5DA23D /* fficonfig_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BFA99F3F1DFFB44A997B0495FAD4C41 /* fficonfig_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		011D7FFF87C77790014F41011DA18D7D /* ffitarget_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4856E208EF153CBB8D54B384A6C5F4 /* ffitarget_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0728A096ED50E8157249FB79EA5DA23D /* fficonfig_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E5BDC07657DC129857A194F4A0E7B42 /* fficonfig_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E51FAD3520AF2D17888CD02236F5FA3 /* HoloLifecycleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 097716CB87F4199AD8A5443A27FCBA01 /* HoloLifecycleManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10B4DE8C94037E4647C76567D6015A50 /* Pods-HoloLifecycle_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C195D2B19607158084E6E6CA5696B54F /* Pods-HoloLifecycle_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1649AF7E59832823DF24EA3309B58EE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC4F55CC4FC0A435019C640BC95C745 /* Foundation.framework */; };
-		24EB23D03951C14C63CC1714145692D7 /* ffi_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = B6340D4294535186C2D21FCA93012704 /* ffi_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24EB23D03951C14C63CC1714145692D7 /* ffi_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = B131F78902396EBBEA10A92C7DAA30A1 /* ffi_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		286C0BEA494B80474A9D664E259EFD80 /* HoloLifecycle-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C62CF54C7D7572CE18D179BD8BAA8D8A /* HoloLifecycle-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		301361B7392AFC97235D604994D19466 /* fficonfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E128F8876732B9192384D2BF510DF9 /* fficonfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		383A8632C4CD7BFA4FD3A8547C5E099C /* HoloBaseLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8201866EE480657337206C55DC1F7D0B /* HoloBaseLifecycle.m */; };
-		4165C91C0FEC718661A0A91DD870989B /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = B3BB00D19B3337FCAA57F91D5EE22707 /* ffi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4547D7052FFD1CE5C532A30654767144 /* ffitarget_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = 510D2CDDDF279F033DBCDF2FFEEBDC0B /* ffitarget_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		459AA8E834E1002EDFD3A83AC86D2F3F /* HoloLifecycle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06444B4DA620F3BCF36669549C710A33 /* HoloLifecycle-dummy.m */; };
+		301361B7392AFC97235D604994D19466 /* fficonfig.h in Headers */ = {isa = PBXBuildFile; fileRef = B5357A2153833EC71486235D9E0ED83D /* fficonfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4165C91C0FEC718661A0A91DD870989B /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = B7711E18C0820140BAC6948256E6956B /* ffi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4547D7052FFD1CE5C532A30654767144 /* ffitarget_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = 015F46C54DF4EB2F2A2C9B2F9AB97DBD /* ffitarget_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		460EC4B42ABC3FDAF75840E970D422ED /* libffi_holo.a in Sources */ = {isa = PBXBuildFile; fileRef = 65EDE4E24FD585146AB079819426D3F0 /* libffi_holo.a */; };
 		46E4D715B96369AA77A570730DC39810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC4F55CC4FC0A435019C640BC95C745 /* Foundation.framework */; };
-		4A36C754270C3A6DEA25F6BE003C5196 /* HoloLifecycleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA522620C68C8FBEC6F57BBFB75BDC89 /* HoloLifecycleManager.m */; };
-		4B8EF32608415F88D64CC5E3EA10240D /* fficonfig_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EA16CA46100270CE1760B846CE5E11 /* fficonfig_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B8EF32608415F88D64CC5E3EA10240D /* fficonfig_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = D323BC66F7B76EAD1B70CDB26A19C8CC /* fficonfig_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CECCFC1FD427685BB79C42068CDE457 /* Pods-HoloLifecycle_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E0FD79B2E62178BCB99D0350C66CD6 /* Pods-HoloLifecycle_Example-dummy.m */; };
+		5021E0E0E7B68130D484CA97A3DDEAEE /* HoloLifecycleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA522620C68C8FBEC6F57BBFB75BDC89 /* HoloLifecycleManager.m */; };
 		533B3D5EA2C5DF73D47948C06F20D557 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC4F55CC4FC0A435019C640BC95C745 /* Foundation.framework */; };
-		5E6F635947F09F8E4C6C29A30FC6A520 /* ffi_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = A05B67A21F8A2D2906EED11AFB00F019 /* ffi_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		698A12A3252BD57CB95C1087FA14451C /* fficonfig_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A22EC2F9697FAE69BFF5D3D00ADCD24 /* fficonfig_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E6F635947F09F8E4C6C29A30FC6A520 /* ffi_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0C1A951A8719FB7DC1031575B475AB /* ffi_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		698A12A3252BD57CB95C1087FA14451C /* fficonfig_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = DBFC533F4A4E6A31F87B4E33EB30F7FC /* fficonfig_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D782B3E2FFABD2D4CAFD9D4D6A7A5D4 /* Pods-HoloLifecycle_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B90011BC8275B08897B68D206BDF8E /* Pods-HoloLifecycle_Tests-dummy.m */; };
-		6E5560F8DDE3AB9143FC3B5637FB8438 /* ffi_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = 090CFA194C5D72817A4A72B9082F43BF /* ffi_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71F858632707D1734169F911305DD545 /* ffitarget_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCE772DBBEC18D06D2733EF3E0CAA2B /* ffitarget_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E5560F8DDE3AB9143FC3B5637FB8438 /* ffi_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = F42C0AF1FFA278ACF2FA74DDA6EC7BEF /* ffi_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		718D361CEAEB839084771C9AF016456D /* HoloLifecycle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06444B4DA620F3BCF36669549C710A33 /* HoloLifecycle-dummy.m */; };
+		71F858632707D1734169F911305DD545 /* ffitarget_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6381AD5598D725DC530174BC543788 /* ffitarget_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		724C6F3FFEE834611903385ACED9A65F /* Aspects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF695696D72D5EDE8A0B2D1C1896F9D /* Aspects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75D8581524FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D8581324FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.h */; };
+		75D8581624FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D8581424FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.m */; };
 		76015A37FF893DF096095CF79935F079 /* Pods-HoloLifecycle_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA4785936B7C635D20C8EC9685562A65 /* Pods-HoloLifecycle_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		876BDE22F2DE5E9B1A249F688B08D874 /* HoloBaseLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8201866EE480657337206C55DC1F7D0B /* HoloBaseLifecycle.m */; };
 		9E5DD349B804CB44CBC7053F8A8E30F9 /* HoloLifecycleMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FDA8AE9778FF877669824663E712A21 /* HoloLifecycleMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0A2B7B4FD55F48A80B9852ED2CE6A3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC4F55CC4FC0A435019C640BC95C745 /* Foundation.framework */; };
-		A1B5654CD64FBE4AF685BF3CA417FD12 /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = A7FC483BCE1AFE1AFFD76AE6FA62F5BD /* ffitarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B5654CD64FBE4AF685BF3CA417FD12 /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B3B60D3F88A8F709EC5E1AA317AE92E /* ffitarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1B8D97C374059E398BD46B0A8AAEFE4 /* HoloBaseLifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60CF035CB9F728E1A20ED2A4FCB617F0 /* HoloBaseLifecycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6CD43CAF88F86A0F14875E1A7B850A2 /* ffi_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E9B200BE15A0776A7FBE6DCB13A5C1 /* ffi_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6CD43CAF88F86A0F14875E1A7B850A2 /* ffi_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = EEF4FD5F06836BE04CF842C5354F6503 /* ffi_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A954361B6A6FD111452CB9DABC9B30F7 /* Aspects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95256A292923C71DE3DC8210BB1573DE /* Aspects-dummy.m */; };
-		BB743D29B7FCD8EE62CA387441C65934 /* ffitarget_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CC4DDE85B21F1D8DD1FDF172BF2077 /* ffitarget_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB743D29B7FCD8EE62CA387441C65934 /* ffitarget_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = 02176A36BF5D22ABC13D5A8ABD810B5A /* ffitarget_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5EFE0EE1D51E5BB5FB6014216911ACA /* HoloLifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3619F86FC37BB094FE431166BB083F /* HoloLifecycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9C7EFEC7BD98A8D66BAF4D09AA4A9A0 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78FCCCD3F2A361AFDF4C4CD2BC28258 /* Aspects.framework */; };
-		CD47FE16B9FA8BA576B58F34E0B2E5D2 /* fficonfig_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = 58E7538426BF7FCCDFF0EB6E9E428A4C /* fficonfig_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD47FE16B9FA8BA576B58F34E0B2E5D2 /* fficonfig_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = 018DF653C8E32E79DEDDE6027F8F3405 /* fficonfig_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D1B36B956BB9083C0D032FC747AA8360 /* HoloLifecycleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CDBB4F12BC2B3F3B037B76DBF23948D6 /* HoloLifecycleProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D29807C0AF15AB9973D93D1416EF37EB /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = DCD62DA6A02F916536F956E84ABC66DD /* Aspects.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDE54B92428A314DB67847BA1F12800A /* ffi_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD92EAE60BF92D983CE756EDB616ED8 /* ffi_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E318CD758A36077C7674DE81446AA2E0 /* libffi.a in Sources */ = {isa = PBXBuildFile; fileRef = 9E4B459AA5F1FE34CEAD384AE1D595C7 /* libffi.a */; };
+		DDE54B92428A314DB67847BA1F12800A /* ffi_common.h in Headers */ = {isa = PBXBuildFile; fileRef = E21705CD19487F9BA394C87CC22D3709 /* ffi_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F51A21D307B9275272758FF324F60B91 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC52A31AD0A1062C627E9AD9760C31 /* Aspects.m */; };
 /* End PBXBuildFile section */
 
@@ -80,70 +82,72 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		015F46C54DF4EB2F2A2C9B2F9AB97DBD /* ffitarget_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
+		018DF653C8E32E79DEDDE6027F8F3405 /* fficonfig_x86_64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_x86_64.h; sourceTree = "<group>"; };
+		02176A36BF5D22ABC13D5A8ABD810B5A /* ffitarget_x86_64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
 		046B9C57A5F4BD3E5A6DF43CB4FCD184 /* Pods-HoloLifecycle_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		05EA16CA46100270CE1760B846CE5E11 /* fficonfig_arm64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_arm64.h; sourceTree = "<group>"; };
 		06444B4DA620F3BCF36669549C710A33 /* HoloLifecycle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HoloLifecycle-dummy.m"; sourceTree = "<group>"; };
-		090CFA194C5D72817A4A72B9082F43BF /* ffi_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
 		097716CB87F4199AD8A5443A27FCBA01 /* HoloLifecycleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HoloLifecycleManager.h; sourceTree = "<group>"; };
-		0BFA99F3F1DFFB44A997B0495FAD4C41 /* fficonfig_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
 		0D374D59E405E2BDF6A4FF90B44969F4 /* HoloLifecycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HoloLifecycle.release.xcconfig; sourceTree = "<group>"; };
 		15654080D9EEF5650EE609D54EEE1155 /* Pods-HoloLifecycle_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HoloLifecycle_Example-frameworks.sh"; sourceTree = "<group>"; };
 		16F58986BBFEFDD5C4AA4E6C12622A2D /* Aspects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Aspects.debug.xcconfig; sourceTree = "<group>"; };
+		2B3B60D3F88A8F709EC5E1AA317AE92E /* ffitarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		2E5BDC07657DC129857A194F4A0E7B42 /* fficonfig_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
 		2FDA8AE9778FF877669824663E712A21 /* HoloLifecycleMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HoloLifecycleMacro.h; sourceTree = "<group>"; };
 		336A0E8566B65ADCCF5DD7DBEC5B7D48 /* Pods-HoloLifecycle_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3958D2B3A9FE27B2DD2AAF6090123BC7 /* HoloLifecycle.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HoloLifecycle.modulemap; sourceTree = "<group>"; };
-		3FD92EAE60BF92D983CE756EDB616ED8 /* ffi_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
-		510D2CDDDF279F033DBCDF2FFEEBDC0B /* ffitarget_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
-		525CD0E2347FAE673B39F45CA0E767BE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		525CD0E2347FAE673B39F45CA0E767BE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5630DEABDEA929A0D846BA74109EE8A5 /* Aspects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-prefix.pch"; sourceTree = "<group>"; };
-		58E7538426BF7FCCDFF0EB6E9E428A4C /* fficonfig_x86_64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_x86_64.h; sourceTree = "<group>"; };
 		5FAC52A31AD0A1062C627E9AD9760C31 /* Aspects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 		60B90011BC8275B08897B68D206BDF8E /* Pods-HoloLifecycle_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HoloLifecycle_Tests-dummy.m"; sourceTree = "<group>"; };
 		60CF035CB9F728E1A20ED2A4FCB617F0 /* HoloBaseLifecycle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HoloBaseLifecycle.h; sourceTree = "<group>"; };
+		65EDE4E24FD585146AB079819426D3F0 /* libffi_holo.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libffi_holo.a; sourceTree = "<group>"; };
 		6BACE68DC965FE3E8C2A32785801A3F0 /* Pods-HoloLifecycle_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HoloLifecycle_Example.modulemap"; sourceTree = "<group>"; };
-		6BAD88A1DE659FC088756D4E6684FD11 /* ffitarget_arm64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
 		6C3619F86FC37BB094FE431166BB083F /* HoloLifecycle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HoloLifecycle.h; path = HoloLifecycle/Classes/HoloLifecycle.h; sourceTree = "<group>"; };
 		6F5896A2F1310281AAC1D53AC78F410E /* HoloLifecycle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HoloLifecycle-Info.plist"; sourceTree = "<group>"; };
-		7D38FFB70389B75DBF37BA08770F5E0C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		75D8581324FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoloLifecycleHookInfo.h; sourceTree = "<group>"; };
+		75D8581424FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoloLifecycleHookInfo.m; sourceTree = "<group>"; };
+		7B6381AD5598D725DC530174BC543788 /* ffitarget_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		7D38FFB70389B75DBF37BA08770F5E0C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8201866EE480657337206C55DC1F7D0B /* HoloBaseLifecycle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HoloBaseLifecycle.m; sourceTree = "<group>"; };
-		82E9B200BE15A0776A7FBE6DCB13A5C1 /* ffi_arm64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
-		875C47D3C064AD733A6865953F928996 /* HoloLifecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HoloLifecycle.framework; path = HoloLifecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		875C47D3C064AD733A6865953F928996 /* HoloLifecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HoloLifecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95256A292923C71DE3DC8210BB1573DE /* Aspects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Aspects-dummy.m"; sourceTree = "<group>"; };
 		97E1FA33A021AC7B926A7095084DE563 /* Pods-HoloLifecycle_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HoloLifecycle_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9808BF74538141204E4EB5B49809FE77 /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Aspects.framework; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A22EC2F9697FAE69BFF5D3D00ADCD24 /* fficonfig_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
-		9BCE772DBBEC18D06D2733EF3E0CAA2B /* ffitarget_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		9808BF74538141204E4EB5B49809FE77 /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF695696D72D5EDE8A0B2D1C1896F9D /* Aspects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E4B459AA5F1FE34CEAD384AE1D595C7 /* libffi.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libffi.a; sourceTree = "<group>"; };
-		A05B67A21F8A2D2906EED11AFB00F019 /* ffi_x86_64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
-		A190B20E868ED819B7A52D54926C705A /* Pods_HoloLifecycle_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HoloLifecycle_Tests.framework; path = "Pods-HoloLifecycle_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A190B20E868ED819B7A52D54926C705A /* Pods_HoloLifecycle_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoloLifecycle_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58BDECA5531622150DF6AA46A70B395 /* Pods-HoloLifecycle_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Example-Info.plist"; sourceTree = "<group>"; };
-		A7FC483BCE1AFE1AFFD76AE6FA62F5BD /* ffitarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
 		A855A79B92D827C722A6C41B169FE9A9 /* HoloLifecycle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HoloLifecycle-prefix.pch"; sourceTree = "<group>"; };
 		AB6EE2EA77F03569849CB732FCF67731 /* Pods-HoloLifecycle_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HoloLifecycle_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B3BB00D19B3337FCAA57F91D5EE22707 /* ffi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
-		B6340D4294535186C2D21FCA93012704 /* ffi_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		B131F78902396EBBEA10A92C7DAA30A1 /* ffi_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		B5357A2153833EC71486235D9E0ED83D /* fficonfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
 		B66F8D6F7E45DB142F771B367943F48C /* HoloLifecycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HoloLifecycle.debug.xcconfig; sourceTree = "<group>"; };
+		B7711E18C0820140BAC6948256E6956B /* ffi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
 		BCF1FA161A0968ABF883AFB705ABD2E1 /* Pods-HoloLifecycle_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BD0C1A951A8719FB7DC1031575B475AB /* ffi_x86_64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
 		C195D2B19607158084E6E6CA5696B54F /* Pods-HoloLifecycle_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HoloLifecycle_Example-umbrella.h"; sourceTree = "<group>"; };
-		C2E128F8876732B9192384D2BF510DF9 /* fficonfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
 		C530B022392C0A5103D1F1C6FBBBA352 /* Aspects-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Aspects-Info.plist"; sourceTree = "<group>"; };
 		C62CF54C7D7572CE18D179BD8BAA8D8A /* HoloLifecycle-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HoloLifecycle-umbrella.h"; sourceTree = "<group>"; };
 		CB490BE7ADB146F952BEF44C244B61FF /* Pods-HoloLifecycle_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HoloLifecycle_Tests.modulemap"; sourceTree = "<group>"; };
 		CDBB4F12BC2B3F3B037B76DBF23948D6 /* HoloLifecycleProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HoloLifecycleProtocol.h; sourceTree = "<group>"; };
-		D3D9B66C4DFF577D55200B778DB3ED4A /* Pods_HoloLifecycle_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HoloLifecycle_Example.framework; path = "Pods-HoloLifecycle_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D323BC66F7B76EAD1B70CDB26A19C8CC /* fficonfig_arm64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_arm64.h; sourceTree = "<group>"; };
+		D3D9B66C4DFF577D55200B778DB3ED4A /* Pods_HoloLifecycle_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoloLifecycle_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D650BF34B7E8E319C2BFA9CC2B00C41B /* Aspects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Aspects.modulemap; sourceTree = "<group>"; };
-		D688D907FC57E312A5CB698A3E7085E1 /* HoloLifecycle.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HoloLifecycle.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D688D907FC57E312A5CB698A3E7085E1 /* HoloLifecycle.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HoloLifecycle.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DA4856E208EF153CBB8D54B384A6C5F4 /* ffitarget_arm64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
+		DBFC533F4A4E6A31F87B4E33EB30F7FC /* fficonfig_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
 		DCD62DA6A02F916536F956E84ABC66DD /* Aspects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		E0E0FD79B2E62178BCB99D0350C66CD6 /* Pods-HoloLifecycle_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HoloLifecycle_Example-dummy.m"; sourceTree = "<group>"; };
+		E21705CD19487F9BA394C87CC22D3709 /* ffi_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
 		E8A5C54795BA7C564998C9A830D96A2D /* Pods-HoloLifecycle_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Tests-Info.plist"; sourceTree = "<group>"; };
 		EE2C1076A0C40B18AD0F44B8D1604B26 /* Aspects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Aspects.release.xcconfig; sourceTree = "<group>"; };
 		EEA7D4DBAB7AD17CC5B1E183097AFF05 /* Pods-HoloLifecycle_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EEF4FD5F06836BE04CF842C5354F6503 /* ffi_arm64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
 		F0FD039ADA47600D64C8A3BDFA0CACA1 /* Pods-HoloLifecycle_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HoloLifecycle_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F214B3406E83400E56F7E16A0C265210 /* Pods-HoloLifecycle_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HoloLifecycle_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F42C0AF1FFA278ACF2FA74DDA6EC7BEF /* ffi_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
 		F78FCCCD3F2A361AFDF4C4CD2BC28258 /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9CC4DDE85B21F1D8DD1FDF172BF2077 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
 		FA4785936B7C635D20C8EC9685562A65 /* Pods-HoloLifecycle_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HoloLifecycle_Tests-umbrella.h"; sourceTree = "<group>"; };
 		FA522620C68C8FBEC6F57BBFB75BDC89 /* HoloLifecycleManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HoloLifecycleManager.m; sourceTree = "<group>"; };
 		FBC4F55CC4FC0A435019C640BC95C745 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -210,8 +214,32 @@
 				5FAC52A31AD0A1062C627E9AD9760C31 /* Aspects.m */,
 				D7AB404821ADE8D3D5A3E0E60B958018 /* Support Files */,
 			);
-			name = Aspects;
 			path = Aspects;
+			sourceTree = "<group>";
+		};
+		1FFB614C6C6F508D8F3456DCD25BFE0A /* libffi */ = {
+			isa = PBXGroup;
+			children = (
+				B7711E18C0820140BAC6948256E6956B /* ffi.h */,
+				EEF4FD5F06836BE04CF842C5354F6503 /* ffi_arm64.h */,
+				F42C0AF1FFA278ACF2FA74DDA6EC7BEF /* ffi_armv7.h */,
+				E21705CD19487F9BA394C87CC22D3709 /* ffi_common.h */,
+				B131F78902396EBBEA10A92C7DAA30A1 /* ffi_i386.h */,
+				BD0C1A951A8719FB7DC1031575B475AB /* ffi_x86_64.h */,
+				B5357A2153833EC71486235D9E0ED83D /* fficonfig.h */,
+				D323BC66F7B76EAD1B70CDB26A19C8CC /* fficonfig_arm64.h */,
+				2E5BDC07657DC129857A194F4A0E7B42 /* fficonfig_armv7.h */,
+				DBFC533F4A4E6A31F87B4E33EB30F7FC /* fficonfig_i386.h */,
+				018DF653C8E32E79DEDDE6027F8F3405 /* fficonfig_x86_64.h */,
+				2B3B60D3F88A8F709EC5E1AA317AE92E /* ffitarget.h */,
+				DA4856E208EF153CBB8D54B384A6C5F4 /* ffitarget_arm64.h */,
+				015F46C54DF4EB2F2A2C9B2F9AB97DBD /* ffitarget_armv7.h */,
+				7B6381AD5598D725DC530174BC543788 /* ffitarget_i386.h */,
+				02176A36BF5D22ABC13D5A8ABD810B5A /* ffitarget_x86_64.h */,
+				65EDE4E24FD585146AB079819426D3F0 /* libffi_holo.a */,
+			);
+			name = libffi;
+			path = HoloLifecycle/Classes/libffi;
 			sourceTree = "<group>";
 		};
 		263AD61A8CAFA2D20C3EC549EC66A1B2 /* Frameworks */ = {
@@ -229,7 +257,7 @@
 				6C3619F86FC37BB094FE431166BB083F /* HoloLifecycle.h */,
 				97BFDA83CDA590987996A486502176D0 /* Frameworks */,
 				8FD0599B4190DFF5692DB14C13AFC225 /* Holo */,
-				AB859908A9FF3152A4C45D33F031EAC1 /* libffi */,
+				1FFB614C6C6F508D8F3456DCD25BFE0A /* libffi */,
 				76128E65F0192DEAC2CE9AAE04956FDA /* Pod */,
 				694564F358758C294BE71863F49D0F44 /* Support Files */,
 			);
@@ -322,6 +350,8 @@
 				2FDA8AE9778FF877669824663E712A21 /* HoloLifecycleMacro.h */,
 				097716CB87F4199AD8A5443A27FCBA01 /* HoloLifecycleManager.h */,
 				FA522620C68C8FBEC6F57BBFB75BDC89 /* HoloLifecycleManager.m */,
+				75D8581324FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.h */,
+				75D8581424FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.m */,
 				CDBB4F12BC2B3F3B037B76DBF23948D6 /* HoloLifecycleProtocol.h */,
 			);
 			name = Holo;
@@ -333,31 +363,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AB859908A9FF3152A4C45D33F031EAC1 /* libffi */ = {
-			isa = PBXGroup;
-			children = (
-				B3BB00D19B3337FCAA57F91D5EE22707 /* ffi.h */,
-				82E9B200BE15A0776A7FBE6DCB13A5C1 /* ffi_arm64.h */,
-				090CFA194C5D72817A4A72B9082F43BF /* ffi_armv7.h */,
-				3FD92EAE60BF92D983CE756EDB616ED8 /* ffi_common.h */,
-				B6340D4294535186C2D21FCA93012704 /* ffi_i386.h */,
-				A05B67A21F8A2D2906EED11AFB00F019 /* ffi_x86_64.h */,
-				C2E128F8876732B9192384D2BF510DF9 /* fficonfig.h */,
-				05EA16CA46100270CE1760B846CE5E11 /* fficonfig_arm64.h */,
-				0BFA99F3F1DFFB44A997B0495FAD4C41 /* fficonfig_armv7.h */,
-				9A22EC2F9697FAE69BFF5D3D00ADCD24 /* fficonfig_i386.h */,
-				58E7538426BF7FCCDFF0EB6E9E428A4C /* fficonfig_x86_64.h */,
-				A7FC483BCE1AFE1AFFD76AE6FA62F5BD /* ffitarget.h */,
-				6BAD88A1DE659FC088756D4E6684FD11 /* ffitarget_arm64.h */,
-				510D2CDDDF279F033DBCDF2FFEEBDC0B /* ffitarget_armv7.h */,
-				9BCE772DBBEC18D06D2733EF3E0CAA2B /* ffitarget_i386.h */,
-				F9CC4DDE85B21F1D8DD1FDF172BF2077 /* ffitarget_x86_64.h */,
-				9E4B459AA5F1FE34CEAD384AE1D595C7 /* libffi.a */,
-			);
-			name = libffi;
-			path = HoloLifecycle/Classes/libffi;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -415,6 +420,7 @@
 				CD47FE16B9FA8BA576B58F34E0B2E5D2 /* fficonfig_x86_64.h in Headers */,
 				A1B5654CD64FBE4AF685BF3CA417FD12 /* ffitarget.h in Headers */,
 				011D7FFF87C77790014F41011DA18D7D /* ffitarget_arm64.h in Headers */,
+				75D8581524FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.h in Headers */,
 				4547D7052FFD1CE5C532A30654767144 /* ffitarget_armv7.h in Headers */,
 				71F858632707D1734169F911305DD545 /* ffitarget_i386.h in Headers */,
 				BB743D29B7FCD8EE62CA387441C65934 /* ffitarget_x86_64.h in Headers */,
@@ -480,7 +486,7 @@
 			buildConfigurationList = 9306E09351F5E7887DB0EFEE176F680F /* Build configuration list for PBXNativeTarget "HoloLifecycle" */;
 			buildPhases = (
 				1E8F01C7D0F5177F887F3D996FA55970 /* Headers */,
-				71C7CFC6ADA8234E5D44FE380E8746C2 /* Sources */,
+				8889BF28C62475B59F8BC538E4E188B6 /* Sources */,
 				C3BD9F4E5506F439D92ABD7CC616FAF6 /* Frameworks */,
 				AA02F145A3FC60D5D05C7AE665CC2A37 /* Resources */,
 			);
@@ -601,22 +607,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71C7CFC6ADA8234E5D44FE380E8746C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				383A8632C4CD7BFA4FD3A8547C5E099C /* HoloBaseLifecycle.m in Sources */,
-				459AA8E834E1002EDFD3A83AC86D2F3F /* HoloLifecycle-dummy.m in Sources */,
-				4A36C754270C3A6DEA25F6BE003C5196 /* HoloLifecycleManager.m in Sources */,
-				E318CD758A36077C7674DE81446AA2E0 /* libffi.a in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		73554758EB8D94AB9FE5E38FB129A9A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4CECCFC1FD427685BB79C42068CDE457 /* Pods-HoloLifecycle_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8889BF28C62475B59F8BC538E4E188B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				876BDE22F2DE5E9B1A249F688B08D874 /* HoloBaseLifecycle.m in Sources */,
+				718D361CEAEB839084771C9AF016456D /* HoloLifecycle-dummy.m in Sources */,
+				5021E0E0E7B68130D484CA97A3DDEAEE /* HoloLifecycleManager.m in Sources */,
+				460EC4B42ABC3FDAF75840E970D422ED /* libffi_holo.a in Sources */,
+				75D8581624FAC3BF00E7C9F8 /* HoloLifecycleHookInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,8 +784,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

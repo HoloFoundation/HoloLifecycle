@@ -27,7 +27,8 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
+  s.vendored_libraries = 'HoloLifecycle/Classes/libffi/*.a'
+  
   s.source_files = 'HoloLifecycle/Classes/**/*'
   
   # s.resource_bundles = {
@@ -39,6 +40,5 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   
   s.dependency 'Aspects'
-  s.vendored_libraries = 'HoloLifecycle/Classes/libffi/libffi.a'
   
 end

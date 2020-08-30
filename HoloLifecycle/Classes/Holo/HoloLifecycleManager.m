@@ -10,6 +10,7 @@
 #import <Aspects/Aspects.h>
 #import "HoloBaseLifecycle.h"
 #import "HoloLifecycleMacro.h"
+#import "HoloLifecycleHookInfo.h"
 
 static NSString * const kHoloBaseLifecycleCacheInfoKey      = @"holo_base_lifecycle_cache_info_key";
 static NSString * const kHoloBaseLifecycleCacheAppVersion   = @"holo_base_lifecycle_cache_app_version";
@@ -200,12 +201,14 @@ static NSInteger const kAppDelegatePriority = 300;
 }
 
 - (void)_aspect_hookSelectorWithDelegate:(id <UIApplicationDelegate>)delegate sel:(SEL)sel {
-    [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
-        [self _invokeWithLifecycles:[HoloLifecycleManager sharedInstance].beforeInstances sel:sel info:info];
-    } error:nil];
-    [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info) {
-        [self _invokeWithLifecycles:[HoloLifecycleManager sharedInstance].afterInstances sel:sel info:info];
-    } error:nil];
+    holo_hook_func(delegate, sel);
+    
+//    [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
+//        [self _invokeWithLifecycles:[HoloLifecycleManager sharedInstance].beforeInstances sel:sel info:info];
+//    } error:nil];
+//    [(NSObject *)delegate aspect_hookSelector:sel withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info) {
+//        [self _invokeWithLifecycles:[HoloLifecycleManager sharedInstance].afterInstances sel:sel info:info];
+//    } error:nil];
 }
 
 - (void)_invokeWithLifecycles:(NSArray<HoloBaseLifecycle *> *)lifecycles sel:(SEL)sel info:(id<AspectInfo>)info {
@@ -259,5 +262,255 @@ static NSInteger const kAppDelegatePriority = 300;
         }
     }
 }
+
+
+static void holo_ffi_closure_func(ffi_cif *cif, void *ret, void **args, void *userdata) {
+    
+    HoloLifecycleHookInfo *info = (__bridge HoloLifecycleHookInfo *)userdata;
+        
+    for (HoloBaseLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].beforeInstances) {
+
+        if (![lifecycle respondsToSelector:info.sel]) {
+            continue;
+        }
+        
+        SEL selector = info.sel;
+        NSMethodSignature *signature = [lifecycle methodSignatureForSelector:selector];
+
+        ffi_cif cif;
+        // 构造参数类型列表
+        NSUInteger argsCount = signature.numberOfArguments;
+        ffi_type **argTypes = calloc(argsCount, sizeof(ffi_type *));
+        for (int i = 0; i < argsCount; ++i) {
+            const char *argType = [signature getArgumentTypeAtIndex:i];
+            ffi_type *arg_ffi_type = holo_ffiTypeWithTypeEncoding(argType);
+            NSCAssert(arg_ffi_type, @"can't find a ffi_type ==> %s", argType);
+            argTypes[i] = arg_ffi_type;
+        }
+        // 返回值类型
+        ffi_type *retType = holo_ffiTypeWithTypeEncoding(signature.methodReturnType);
+        ffi_prep_cif(&cif, FFI_DEFAULT_ABI, (uint32_t)signature.numberOfArguments, retType, argTypes);
+        
+        // 构造参数
+        void **callbackArgs = calloc(argsCount, sizeof(void *));
+        callbackArgs[0] = (void *)&lifecycle;
+        callbackArgs[1] = &selector;
+        memcpy(callbackArgs + 2, args + 2, sizeof(*args)*(argsCount - 2));
+        
+        __unsafe_unretained id ret = nil;
+        IMP func = [lifecycle methodForSelector:selector];
+        ffi_call(&cif, func, &ret, callbackArgs);
+    }
+    
+    ffi_call(cif, info->_originalIMP, ret, args);
+    
+    
+//    for (HoloBaseLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].afterInstances) {
+//        NSLog(@"-------------after");
+//    }
+}
+
+
+
+void holo_hook_func(id obj, SEL sel) {
+    
+    Method method = class_getInstanceMethod([obj class], sel);
+    
+    if (!obj || !method) {
+        NSCAssert(NO, @"参数错误");
+        return;
+    }
+    
+    const SEL key = holo_associatedKey(method_getName(method));
+    if (objc_getAssociatedObject(obj, key)) {
+        return;
+    }
+    
+    HoloLifecycleHookInfo *info = [HoloLifecycleHookInfo infoWithObject:obj method:method];
+    info.cls = [obj class];
+    info.sel = sel;
+    
+    // info需要被强引用，否则会出现内存 crash
+    objc_setAssociatedObject(obj, key, info, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    const unsigned int argsCount = method_getNumberOfArguments(method);
+    // 构造参数类型列表
+    ffi_type **argTypes = calloc(argsCount, sizeof(ffi_type *));
+    for (int i = 0; i < argsCount; ++i) {
+        const char *argType = [info.signature getArgumentTypeAtIndex:i];
+        ffi_type *arg_ffi_type = holo_ffiTypeWithTypeEncoding(argType);
+        NSCAssert(arg_ffi_type, @"can't find a ffi_type ==> %s", argType);
+        argTypes[i] = arg_ffi_type;
+    }
+    // 返回值类型
+    ffi_type *retType = holo_ffiTypeWithTypeEncoding(info.signature.methodReturnType);
+    
+    // 需要在堆上开辟内存，否则会出现内存问题(HoloLifecycleHookInfo 释放时会 free 掉)
+    ffi_cif *cif = calloc(1, sizeof(ffi_cif));
+    // 生成 ffi_cfi 模版对象，保存函数参数个数、类型等信息，相当于一个函数原型
+    ffi_status prepCifStatus = ffi_prep_cif(cif, FFI_DEFAULT_ABI, argsCount, retType, argTypes);
+    if (prepCifStatus != FFI_OK) {
+        NSCAssert1(NO, @"ffi_prep_cif failed = %d", prepCifStatus);
+        return;
+    }
+    
+    // 生成新的 IMP
+    void *newIMP = NULL;
+    ffi_closure *cloure = ffi_closure_alloc(sizeof(ffi_closure), (void **)&newIMP);
+    {
+        info->_cif = cif;
+        info->_argTypes = argTypes;
+        info->_closure = cloure;
+        info->_newIMP = newIMP;
+    };
+    ffi_status prepClosureStatus = ffi_prep_closure_loc(cloure, cif, holo_ffi_closure_func, (__bridge void *)info, newIMP);
+    if (prepClosureStatus != FFI_OK) {
+        NSCAssert1(NO, @"ffi_prep_closure_loc failed = %d", prepClosureStatus);
+        return;
+    }
+
+    // 替换 IMP 实现
+    Class hookClass = [obj class];
+    SEL aSelector = method_getName(method);
+    const char *typeEncoding = method_getTypeEncoding(method);
+    if (!class_addMethod(hookClass, aSelector, newIMP, typeEncoding)) {
+        // IMP originIMP = class_replaceMethod(hookClass, aSelector, newIMP, typeEncoding);
+        IMP originIMP = method_setImplementation(method, newIMP);
+        if (info->_originalIMP != originIMP) {
+            info->_originalIMP = originIMP;
+        }
+    }
+}
+
+
+static const SEL holo_associatedKey(SEL selector) {
+    NSCAssert(selector != NULL, @"selector不能为NULL");
+    NSString *selectorString = [@"holo_aop_" stringByAppendingString:NSStringFromSelector(selector)];
+    const SEL key = NSSelectorFromString(selectorString);
+    return key;
+}
+
+ffi_type *holo_ffiTypeWithTypeEncoding(const char *type) {
+    if (strcmp(type, "@?") == 0) { // block
+        return &ffi_type_pointer;
+    }
+    const char *c = type;
+    switch (c[0]) {
+        case 'v':
+            return &ffi_type_void;
+        case 'c':
+            return &ffi_type_schar;
+        case 'C':
+            return &ffi_type_uchar;
+        case 's':
+            return &ffi_type_sshort;
+        case 'S':
+            return &ffi_type_ushort;
+        case 'i':
+            return &ffi_type_sint;
+        case 'I':
+            return &ffi_type_uint;
+        case 'l':
+            return &ffi_type_slong;
+        case 'L':
+            return &ffi_type_ulong;
+        case 'q':
+            return &ffi_type_sint64;
+        case 'Q':
+            return &ffi_type_uint64;
+        case 'f':
+            return &ffi_type_float;
+        case 'd':
+            return &ffi_type_double;
+        case 'F':
+#if CGFLOAT_IS_DOUBLE
+            return &ffi_type_double;
+#else
+            return &ffi_type_float;
+#endif
+        case 'B':
+            return &ffi_type_uint8;
+        case '^':
+            return &ffi_type_pointer;
+        case '@':
+            return &ffi_type_pointer;
+        case '#':
+            return &ffi_type_pointer;
+        case ':':
+            return &ffi_type_pointer;
+        case '*':
+            return &ffi_type_pointer;
+        case '{':
+        default: {
+            printf("not support the type: %s", c);
+        } break;
+    }
+    
+    NSCAssert(NO, @"can't match a ffi_type of %s", type);
+    return NULL;
+}
+
+
+id holo_ArgumentAtIndex(NSMethodSignature *methodSignature, void **args, NSUInteger index) {
+#define WRAP_AND_RETURN(type) \
+do { \
+type val = *((type *)args[index]);\
+return @(val); \
+} while (0)
+    
+    const char *originArgType = [methodSignature getArgumentTypeAtIndex:index];
+//    NSString *argTypeString = ZD_ReduceBlockSignatureCodingType(originArgType);
+//    const char *argType = argTypeString.UTF8String;
+    const char *argType = originArgType;
+    
+    // Skip const type qualifier.
+    if (argType[0] == 'r') {
+        argType++;
+    }
+    
+    if (strcmp(argType, @encode(id)) == 0 || strcmp(argType, @encode(Class)) == 0) {
+        id argValue = (__bridge id)(*((void **)args[index]));
+        return argValue;
+    } else if (strcmp(argType, @encode(char)) == 0) {
+        WRAP_AND_RETURN(char);
+    } else if (strcmp(argType, @encode(int)) == 0) {
+        WRAP_AND_RETURN(int);
+    } else if (strcmp(argType, @encode(short)) == 0) {
+        WRAP_AND_RETURN(short);
+    } else if (strcmp(argType, @encode(long)) == 0) {
+        WRAP_AND_RETURN(long);
+    } else if (strcmp(argType, @encode(long long)) == 0) {
+        WRAP_AND_RETURN(long long);
+    } else if (strcmp(argType, @encode(unsigned char)) == 0) {
+        WRAP_AND_RETURN(unsigned char);
+    } else if (strcmp(argType, @encode(unsigned int)) == 0) {
+        WRAP_AND_RETURN(unsigned int);
+    } else if (strcmp(argType, @encode(unsigned short)) == 0) {
+        WRAP_AND_RETURN(unsigned short);
+    } else if (strcmp(argType, @encode(unsigned long)) == 0) {
+        WRAP_AND_RETURN(unsigned long);
+    } else if (strcmp(argType, @encode(unsigned long long)) == 0) {
+        WRAP_AND_RETURN(unsigned long long);
+    } else if (strcmp(argType, @encode(float)) == 0) {
+        WRAP_AND_RETURN(float);
+    } else if (strcmp(argType, @encode(double)) == 0) {
+        WRAP_AND_RETURN(double);
+    } else if (strcmp(argType, @encode(BOOL)) == 0) {
+        WRAP_AND_RETURN(BOOL);
+    } else if (strcmp(argType, @encode(char *)) == 0) {
+        WRAP_AND_RETURN(const char *);
+    } else if (strcmp(argType, @encode(void (^)(void))) == 0) {
+        __unsafe_unretained id block = nil;
+        block = (__bridge id)(*((void **)args[index]));
+        return [block copy];
+    }
+    else {
+        NSCAssert(NO, @"不支持的类型");
+    }
+    
+    return nil;
+#undef WRAP_AND_RETURN
+}
+
 
 @end
