@@ -56,8 +56,8 @@ static NSInteger const kAppDelegatePriority = 300;
         } else {
             classArray = [self _findAllHoloBaseLifecycleSubClass];
             cacheInfo = @{
-                kHoloBaseLifecycleCacheAppVersion : appVersion,
-                kHoloBaseLifecycleCacheSubClasses : classArray
+                kHoloBaseLifecycleCacheAppVersion : appVersion ?: @"",
+                kHoloBaseLifecycleCacheSubClasses : classArray ?: @[]
             };
             [[NSUserDefaults standardUserDefaults] setObject:cacheInfo forKey:kHoloBaseLifecycleCacheInfoKey];
         }
@@ -263,7 +263,16 @@ static void holo_lifecycle_ffi_closure_func(ffi_cif *cif, void *ret, void **args
     
     // before
     for (HoloBaseLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].beforeInstances) {
+#if DEBUG
+        CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+#endif
         holo_lifecycle_call_sel(lifecycle, info.sel, args);
+#if DEBUG
+        if ([HoloLifecycleManager sharedInstance].hasLog) {
+            CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
+            HoloLog(@"\nlifecycle: %@\nselector: %@\nperformTime: %f milliseconds", NSStringFromClass(info.cls), NSStringFromSelector(info.sel), endTime * 1000.0);
+        }
+#endif
     }
     
     // call original IMP
@@ -271,7 +280,16 @@ static void holo_lifecycle_ffi_closure_func(ffi_cif *cif, void *ret, void **args
     
     // after
     for (HoloBaseLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].afterInstances) {
+#if DEBUG
+        CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+#endif
         holo_lifecycle_call_sel(lifecycle, info.sel, args);
+#if DEBUG
+        if ([HoloLifecycleManager sharedInstance].hasLog) {
+            CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
+            HoloLog(@"\nlifecycle: %@\nselector: %@\nperformTime: %f milliseconds", NSStringFromClass(info.cls), NSStringFromSelector(info.sel), endTime * 1000.0);
+        }
+#endif
     }
 }
 
@@ -288,7 +306,7 @@ static void holo_lifecycle_call_sel(HoloBaseLifecycle *lifecycle, SEL sel, void 
     for (int i = 0; i < argsCount; ++i) {
         const char *argType = [signature getArgumentTypeAtIndex:i];
         ffi_type *arg_ffi_type = holo_lifecycle_ffi_type(argType);
-        NSCAssert(arg_ffi_type, @"can't find a ffi_type ==> %s", argType);
+        NSCAssert(arg_ffi_type, @"can't find a ffi_type: %s", argType);
         argTypes[i] = arg_ffi_type;
     }
     // 返回值类型
