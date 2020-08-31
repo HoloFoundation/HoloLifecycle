@@ -1,6 +1,0 @@
-framework module HoloLifecycle {
-  umbrella header "HoloLifecycle-umbrella.h"
-
-  export *
-  module * { export * }
-}
