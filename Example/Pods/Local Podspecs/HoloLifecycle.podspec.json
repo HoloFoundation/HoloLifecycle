@@ -19,10 +19,5 @@
     "ios": "8.0"
   },
   "vendored_libraries": "HoloLifecycle/Classes/libffi/*.a",
-  "source_files": "HoloLifecycle/Classes/**/*",
-  "dependencies": {
-    "Aspects": [
-
-    ]
-  }
+  "source_files": "HoloLifecycle/Classes/**/*"
 }

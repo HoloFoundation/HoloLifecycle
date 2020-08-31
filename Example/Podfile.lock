@@ -1,22 +1,15 @@
 PODS:
-  - Aspects (1.4.1)
-  - HoloLifecycle (2.1.0):
-    - Aspects
+  - HoloLifecycle (2.1.0)
 
 DEPENDENCIES:
   - HoloLifecycle (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - Aspects
 
 EXTERNAL SOURCES:
   HoloLifecycle:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  HoloLifecycle: d20604b75082296f83b80f8521253457ff90e6b6
+  HoloLifecycle: aeadf1bed781d00b68b4df7ec49f68e4e63039d8
 
 PODFILE CHECKSUM: 76f1d25e350d8f1a855b9682df15540670624047
 
