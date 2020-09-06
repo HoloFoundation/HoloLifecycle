@@ -223,27 +223,27 @@ void holo_lifecycle_hook_func(id obj, SEL sel) {
     for (int i = 0; i < argsCount; ++i) {
         const char *argType = [signature getArgumentTypeAtIndex:i];
         ffi_type *arg_ffi_type = holo_lifecycle_ffi_type(argType);
-        NSCAssert(arg_ffi_type, @"can't find a ffi_type: %s", argType);
+        NSCAssert(arg_ffi_type, @"HoloLifecycle: can't find a ffi_type: %s", argType);
         argTypes[i] = arg_ffi_type;
     }
     // 返回值类型
     ffi_type *retType = holo_lifecycle_ffi_type(signature.methodReturnType);
     
-    // 需要在堆上开辟内存，否则会出现内存问题(HoloLifecycleHookInfo 释放时会 free 掉)
+    // 需要在堆上开辟内存，否则会出现内存问题 (HoloLifecycleHookInfo 释放时会 free 掉)
     ffi_cif *cif = calloc(1, sizeof(ffi_cif));
     // 生成 ffi_cfi 模版对象，保存函数参数个数、类型等信息，相当于一个函数原型
     ffi_status prepCifStatus = ffi_prep_cif(cif, FFI_DEFAULT_ABI, argsCount, retType, argTypes);
     if (prepCifStatus != FFI_OK) {
-        NSCAssert(NO, @"ffi_prep_cif failed: %d", prepCifStatus);
+        NSCAssert(NO, @"HoloLifecycle: ffi_prep_cif failed: %d", prepCifStatus);
         return;
     }
     
     // 生成新的 IMP
     void *newIMP = NULL;
-    ffi_closure *cloure = ffi_closure_alloc(sizeof(ffi_closure), (void **)&newIMP);
-    ffi_status prepClosureStatus = ffi_prep_closure_loc(cloure, cif, holo_lifecycle_ffi_closure_func, (__bridge void *)info, newIMP);
+    ffi_closure *closure = ffi_closure_alloc(sizeof(ffi_closure), (void **)&newIMP);
+    ffi_status prepClosureStatus = ffi_prep_closure_loc(closure, cif, holo_lifecycle_ffi_closure_func, (__bridge void *)info, newIMP);
     if (prepClosureStatus != FFI_OK) {
-        NSCAssert(NO, @"ffi_prep_closure_loc failed: %d", prepClosureStatus);
+        NSCAssert(NO, @"HoloLifecycle: ffi_prep_closure_loc failed: %d", prepClosureStatus);
         return;
     }
     
@@ -258,69 +258,77 @@ void holo_lifecycle_hook_func(id obj, SEL sel) {
     }
 }
 
+#define HOLO_LIFECYCLE_START \
+CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent(); \
+
+#define HOLO_LIFECYCLE_END_LOG(cls, sel) \
+if ([HoloLifecycleManager sharedInstance].hasLog) { \
+CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime); \
+HoloLog(@"HoloLifecycle: '%@' perform selector '%@': %f milliseconds", NSStringFromClass(cls), NSStringFromSelector(sel), endTime * 1000.0); \
+} \
+
 static void holo_lifecycle_ffi_closure_func(ffi_cif *cif, void *ret, void **args, void *userdata) {
     HoloLifecycleHookInfo *info = (__bridge HoloLifecycleHookInfo *)userdata;
     
     // before
     for (HoloBaseLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].beforeInstances) {
+        
 #if DEBUG
-        CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+        HOLO_LIFECYCLE_START
 #endif
-        holo_lifecycle_call_sel(lifecycle, info.sel, args);
+        
+        holo_lifecycle_call_sel(lifecycle, info.sel, cif, args);
+        
 #if DEBUG
-        if ([HoloLifecycleManager sharedInstance].hasLog) {
-            CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
-            HoloLog(@"\nlifecycle: %@\nselector: %@\nperformTime: %f milliseconds", NSStringFromClass(info.cls), NSStringFromSelector(info.sel), endTime * 1000.0);
-        }
+        HOLO_LIFECYCLE_END_LOG(lifecycle.class, info.sel)
 #endif
+        
     }
+    
+    
+#if DEBUG
+    HOLO_LIFECYCLE_START
+#endif
     
     // call original IMP
     ffi_call(cif, info->_originalIMP, ret, args);
     
+#if DEBUG
+    HOLO_LIFECYCLE_END_LOG(info.cls, info.sel)
+#endif
+    
+    
     // after
     for (HoloBaseLifecycle *lifecycle in [HoloLifecycleManager sharedInstance].afterInstances) {
+        
 #if DEBUG
-        CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+        HOLO_LIFECYCLE_START
 #endif
-        holo_lifecycle_call_sel(lifecycle, info.sel, args);
+        
+        holo_lifecycle_call_sel(lifecycle, info.sel, cif, args);
+        
 #if DEBUG
-        if ([HoloLifecycleManager sharedInstance].hasLog) {
-            CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
-            HoloLog(@"\nlifecycle: %@\nselector: %@\nperformTime: %f milliseconds", NSStringFromClass(info.cls), NSStringFromSelector(info.sel), endTime * 1000.0);
-        }
+        HOLO_LIFECYCLE_END_LOG(lifecycle.class, info.sel)
 #endif
+        
     }
 }
 
-static void holo_lifecycle_call_sel(HoloBaseLifecycle *lifecycle, SEL sel, void **originalArgs) {
+static void holo_lifecycle_call_sel(HoloBaseLifecycle *lifecycle, SEL sel, ffi_cif *originalCif, void **originalArgs) {
     if (![lifecycle respondsToSelector:sel]) {
-        return;;
+        return;
     }
     
-    ffi_cif cif;
-    // 构造参数类型列表
+    // 复用 cif，构造参数，重置 args[0]、args[1]
     NSMethodSignature *signature = [lifecycle methodSignatureForSelector:sel];
     NSUInteger argsCount = signature.numberOfArguments;
-    ffi_type **argTypes = calloc(argsCount, sizeof(ffi_type *));
-    for (int i = 0; i < argsCount; ++i) {
-        const char *argType = [signature getArgumentTypeAtIndex:i];
-        ffi_type *arg_ffi_type = holo_lifecycle_ffi_type(argType);
-        NSCAssert(arg_ffi_type, @"can't find a ffi_type: %s", argType);
-        argTypes[i] = arg_ffi_type;
-    }
-    // 返回值类型
-    ffi_type *retType = holo_lifecycle_ffi_type(signature.methodReturnType);
-    ffi_prep_cif(&cif, FFI_DEFAULT_ABI, (uint32_t)signature.numberOfArguments, retType, argTypes);
-    
-    // 构造参数
     void **args = calloc(argsCount, sizeof(void *));
-    args[0] = (void *)&lifecycle;
+    args[0] = &lifecycle;
     args[1] = &sel;
     memcpy(args + 2, originalArgs + 2, sizeof(*originalArgs)*(argsCount - 2));
     
     IMP func = [lifecycle methodForSelector:sel];
-    ffi_call(&cif, func, NULL, args);
+    ffi_call(originalCif, func, NULL, args);
 }
 
 NS_INLINE ffi_type *holo_lifecycle_ffi_type(const char *c) {
