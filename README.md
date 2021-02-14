@@ -1,6 +1,6 @@
 # HoloLifecycle
 
-[![CI Status](https://img.shields.io/travis/gonghonglou/HoloLifecycle.svg?style=flat)](https://travis-ci.org/gonghonglou/HoloLifecycle)
+[![CI Status](https://img.shields.io/travis/HoloFoundation/HoloLifecycle.svg?style=flat)](https://travis-ci.org/HoloFoundation/HoloLifecycle)
 [![Version](https://img.shields.io/cocoapods/v/HoloLifecycle.svg?style=flat)](https://cocoapods.org/pods/HoloLifecycle)
 [![License](https://img.shields.io/cocoapods/l/HoloLifecycle.svg?style=flat)](https://cocoapods.org/pods/HoloLifecycle)
 [![Platform](https://img.shields.io/cocoapods/p/HoloLifecycle.svg?style=flat)](https://cocoapods.org/pods/HoloLifecycle)
